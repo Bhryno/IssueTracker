@@ -7,8 +7,8 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "jquery";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Routes />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <Routes />
+    </React.StrictMode>,
+    document.getElementById("root")
 );
