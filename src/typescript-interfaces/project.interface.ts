@@ -1,6 +1,6 @@
 export interface Project {
-    id: string;
-    name: string;
-    description: string;
-    status: string;
+    id: string
+    name: string
+    description: string
+    status: string
 }

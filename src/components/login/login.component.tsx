@@ -1,46 +1,46 @@
-import React, { useState } from "react";
-import { auth } from "../../firebase/firebase.utils";
-import { useHistory } from "react-router-dom";
-import "./login.styles.scss";
+import React, { useState } from 'react'
+import { auth } from '../../firebase/firebase.utils'
+import { useHistory } from 'react-router-dom'
+import './login.styles.scss'
 
 interface UserLogin {
-    [fieldName: string]: string;
+    [fieldName: string]: string
 }
 
 const Login = () => {
-    const history = useHistory();
+    const history = useHistory()
     const [userCredentials, setUserCredentials] = useState({
-        email: "developer@nikhil.com",
-        password: "12345678",
-    });
+        email: 'developer@nikhil.com',
+        password: '12345678'
+    })
 
-    const { email, password } = userCredentials;
+    const { email, password } = userCredentials
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setUserCredentials((prevUserCredentials) => ({
+        const { name, value } = event.target
+        setUserCredentials(prevUserCredentials => ({
             ...prevUserCredentials,
-            [name]: value,
-        }));
-    };
+            [name]: value
+        }))
+    }
 
     const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
+        event.preventDefault()
 
         try {
-            await auth.signInWithEmailAndPassword(email, password);
+            await auth.signInWithEmailAndPassword(email, password)
             setUserCredentials({
-                email: "",
-                password: "",
-            });
-            history.push("/bugtrail-v3");
+                email: '',
+                password: ''
+            })
+            history.push('/bugtrail-v3')
         } catch (error) {
-            console.error("Couldn't login user: ", error);
+            console.error("Couldn't login user: ", error)
         }
-    };
+    }
 
     return (
-        <div className={"text-center mb-5 mt-5"}>
+        <div className={'text-center mb-5 mt-5'}>
             <form className="form-signin" onSubmit={handleSubmit}>
                 <img
                     className="mb-4"
@@ -82,7 +82,8 @@ const Login = () => {
                 </div>
                 <div className="checkbox mb-3">
                     <label>
-                        <input type="checkbox" value="remember-me" /> Remember me
+                        <input type="checkbox" value="remember-me" /> Remember
+                        me
                     </label>
                 </div>
                 <button className="btn btn-lg btn-dark btn-block" type="submit">
@@ -90,7 +91,7 @@ const Login = () => {
                 </button>
             </form>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login
