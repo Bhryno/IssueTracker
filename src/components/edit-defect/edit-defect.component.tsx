@@ -76,6 +76,7 @@ const EditDefect = () => {
         }
     }
 
+    /** Event for handling each "defect" submit request **/
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         const updatedAt = new Date()
@@ -95,7 +96,7 @@ const EditDefect = () => {
 
             uploadTask.on(
                 firebase.storage.TaskEvent.STATE_CHANGED,
-                function (snapshot: firebase.storage.UploadTaskSnapshot) {
+                function(snapshot: firebase.storage.UploadTaskSnapshot) {
                     var progress =
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                     console.log('Upload is ' + progress + '% done')
@@ -114,7 +115,7 @@ const EditDefect = () => {
                 () => {
                     uploadTask.snapshot.ref
                         .getDownloadURL()
-                        .then(function (downloadURL: string) {
+                        .then(function(downloadURL: string) {
                             console.log('File available at', downloadURL)
                             imageUrl = downloadURL
                         })
@@ -173,7 +174,7 @@ const EditDefect = () => {
                                     setPriority('')
                                     setDefectImage(undefined)
                                 })
-                                .catch(function (error) {
+                                .catch(function(error) {
                                     console.error(
                                         'Error creating ticket: ',
                                         error
@@ -235,7 +236,7 @@ const EditDefect = () => {
                             setPriority('')
                             setDefectImage(undefined)
                         })
-                        .catch(function (error) {
+                        .catch(function(error) {
                             console.error('Error creating ticket: ', error)
                         })
                 })
