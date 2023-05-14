@@ -10,10 +10,10 @@ interface UserRegister {
 const Register = () => {
     const history = useHistory()
     const [userCredentials, setUserCredentials] = useState<UserRegister>({
-        fName: 'Developer',
-        lName: 'Schwarz',
+        fName: 'Bryan',
+        lName: 'Lee',
         role: 'Developer',
-        email: 'developer@nikhil.com',
+        email: 'bryanrplee@gmail.com',
         password: '12345678',
         confirmPassword: '12345678'
     })
