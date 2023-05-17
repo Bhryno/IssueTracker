@@ -7,6 +7,8 @@ import './homepage.styles.scss'
 const Homepage = () => {
     const currentUser: CurrentUser = useContext(CurrentUserContext)
 
+    console.log('User has logged into the Homepage.')
+
     return (
         <div className={'pt-3 pb-3 mt-5'} style={{ minHeight: '86vh' }}>
             {currentUser.email ? (
@@ -72,7 +74,7 @@ const Homepage = () => {
                                             </Link>
                                         </li>
                                         {currentUser.role === 'Triage' ||
-                                        currentUser.role === 'Admin' ? (
+                                            currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}
@@ -85,7 +87,7 @@ const Homepage = () => {
                                             </li>
                                         ) : null}
                                         {currentUser.role === 'Triage' ||
-                                        currentUser.role === 'Admin' ? (
+                                            currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}
@@ -98,7 +100,7 @@ const Homepage = () => {
                                             </li>
                                         ) : null}
                                         {currentUser.role === 'Triage' ||
-                                        currentUser.role === 'Admin' ? (
+                                            currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}

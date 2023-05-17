@@ -34,6 +34,7 @@ const Login = () => {
                 password: ''
             })
             history.push('/bugtrail-v3')
+            console.log(`User ${email} has logged in.`)
         } catch (error) {
             console.error("Couldn't login user: ", error)
         }
