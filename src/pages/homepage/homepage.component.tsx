@@ -74,7 +74,7 @@ const Homepage = () => {
                                             </Link>
                                         </li>
                                         {currentUser.role === 'Triage' ||
-                                            currentUser.role === 'Admin' ? (
+                                        currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}
@@ -87,7 +87,7 @@ const Homepage = () => {
                                             </li>
                                         ) : null}
                                         {currentUser.role === 'Triage' ||
-                                            currentUser.role === 'Admin' ? (
+                                        currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}
@@ -100,7 +100,7 @@ const Homepage = () => {
                                             </li>
                                         ) : null}
                                         {currentUser.role === 'Triage' ||
-                                            currentUser.role === 'Admin' ? (
+                                        currentUser.role === 'Admin' ? (
                                             <li className="list-group-item">
                                                 <Link
                                                     className={'link-font'}

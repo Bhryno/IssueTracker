@@ -1,12 +1,14 @@
 # Choice of UI item selected
-| Element | Description |
-| ------- | ----------- |
-| **Consistency** ![](https://i.imgur.com/vwxMT9k.jpeg) | Using the Material UI design language by Google, I am able to create a user interface that doesn’t lead to logical contradictions. For example, the uniform spacing, size and pattern of the tables and navigation buttons alike enhances the predictability of the product and allows navigation of the application to be second nature and instinctual. Furthermore, the consistency of color implies the property of trust and professionalism.
-| **Clarity** ![](https://i.imgur.com/ie4jS0i.jpeg) | A “clear” user interface doesn’t just mean that the next step is obvious, but also easy for the user. Having large navigation buttons on the left enables the user to not just understand the presentation, but control it.
-| **Usability** ![](https://i.imgur.com/096WOVg.jpeg) | Usability implies the product’s ability to achieve a defined goal effectively. In the context of web applications, UI responsiveness is highly potent to the usability of it because of a wide array of dimensions across a wide array of devices. For example, the navigation bar UI element is only available in desktop and landscape tablet environments. However, when in mobile phone dimensions, the navigation bar compacts into a “hamburger” icon which (when clicked upon) presents the viewer with a drop down menu of available navigation buttons. |
+
+| Element                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Consistency** ![](https://i.imgur.com/vwxMT9k.jpeg) | Using the Material UI design language by Google, I am able to create a user interface that doesn’t lead to logical contradictions. For example, the uniform spacing, size and pattern of the tables and navigation buttons alike enhances the predictability of the product and allows navigation of the application to be second nature and instinctual. Furthermore, the consistency of color implies the property of trust and professionalism.                                                                                                               |
+| **Clarity** ![](https://i.imgur.com/ie4jS0i.jpeg)     | A “clear” user interface doesn’t just mean that the next step is obvious, but also easy for the user. Having large navigation buttons on the left enables the user to not just understand the presentation, but control it.                                                                                                                                                                                                                                                                                                                                      |
+| **Usability** ![](https://i.imgur.com/096WOVg.jpeg)   | Usability implies the product’s ability to achieve a defined goal effectively. In the context of web applications, UI responsiveness is highly potent to the usability of it because of a wide array of dimensions across a wide array of devices. For example, the navigation bar UI element is only available in desktop and landscape tablet environments. However, when in mobile phone dimensions, the navigation bar compacts into a “hamburger” icon which (when clicked upon) presents the viewer with a drop down menu of available navigation buttons. |
 
 # EBNF and Railroad Diagrams for Typescript “if” statement
-``` typescript
+
+```typescript
 ifStatement = "if" "(" \<expression> ")" “{” <variableDeclaration> |<expressionStatement> | ifStatement “}”
 
 expression = <term> { ("+" | "-") <term> }
@@ -14,9 +16,9 @@ expression = <term> { ("+" | "-") <term> }
 variableDeclaration = "let" <identifier> "=" <expression>
 
 expressionStatement = <expression>
-term = <factor> { ("\*" | "/") <factor> } 
-factor = <number> | <identifier> | "(" <expression> ")" 
-identifier = <letter> { <letter> | <number> } 
+term = <factor> { ("\*" | "/") <factor> }
+factor = <number> | <identifier> | "(" <expression> ")"
+identifier = <letter> { <letter> | <number> }
 number = "0" | "1" | ... | "9" { <number> }
 letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
 
@@ -57,8 +59,10 @@ letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
 **letter:**
 
 ![letter](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAAEBCAYAAABR4noWAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAEZ0FNQQAAsY58%2B1GTAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A%2FwD%2FoL2nkwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAElpJREFUeNrtnQtQFEcax5tlVSwMKko0SiQeLHherjRcqtSLKZMYPS8aLkZNSUq0fJ%2FR09LomYvm6mKZsgiEykPFpIKWgiBQlmViKeeJZSLlK3o8ohgUHyhKEPFijmfQ9b5vnNnsbYB9zWOn%2B%2FtXde3Ozk7Pzvfv7umemf4tYyRhFcTrgT148KDLrl27lpWWls48f%2F687c6dO91qa2vdHm9ERMS9Hj16%2FNCnT5%2BvLl26tOHkyZNnyHwTaf%2F%2B%2FYv27NmTUlFREfrKK6%2Bw5557jj322GOsf%2F%2F%2Bbrf9%2FvvvWU1NDTty5AjbvXv3vZCQkNNVVVUzKisrL5H5gV3bLTt37szdtGnT1Dlz5rCZM2eyrl27%2BpzfTz%2F9xHbs2ME2b97c0tra%2Bmp5efkBnuIVzNPBxMTE5G3ZsmUqmM9eeuklFhzs3%2BHh9vHx8WzEiBFWaE2mh4WFVdfX1xeT%2BQHY1Kelpa1C44cPH65q3ni6gAJg2bt3bwIUgOvQfygm8wOoc5eSklI4adKkrljjtRAWgKampiDoQE4MDw8%2FDS1ApdnjZuHBfOzVX7x4MRTP8Vpq6dKlrFu3blZ4mwunmGgyPwBUVlY2C2q9X507T4T5jxo1Clsaq8ViSSXzA0Awjo%2FG4ZwemjhxIgsKCuoOaXRsbOwwMt9g1dXVhTz%2B%2BOO67OvJJ59U%2Bhm3IE0h8w0W9L6D%2BvTpo8u%2BlEIGNb8HpHGmN3%2Fw4MH9OvuSu%2FVG6%2F79%2B36P6b0Z%2B8s1PxxeBhlxvP76oWwvmd%2BlS5ebcP7K6yhTd%2BsFVQ9IhsTDVz9gm8k2m%2B06bH8Fl61OLcA0%2BHAyfGFPW1vbX65cuVLr0kJ0tt40eu%2B999h3332H%2FQQMIhs2bBhbvHixdO3fRNdJvPIDTYeW6mN4GwmnKsfnVpfvWd1kajV7IcjIyGCRkZGsV69erKKigh0%2BfJgVFBSw06dPm7Esd%2BpHR6Z3ZH67mXq700BWaWmpdN6urKyUUlJSEg4V2Y8%2F%2FsjCwsLMegr6Pz%2FAcLwBta4j092Zr6gE0gR36%2FEcAjvtHugRam1tZStXrmR5eXnSHbuQkBDHunv37vmUJxz3gwA6xBIwfiK8TgXT7Z6UmF%2FIbrcfs1gsN%2BDti5A%2Bh7S8s%2FVQ85Odan4wBCQKfsRQ%2BAEvwHIipLPw%2FcVwrr2gxRF7akBubi7LysqSxur5%2BfnSeR6bf3904cIFVW%2BLDxkyJBbiuwkvKUDKgTgehjiWw36qcGDT3vE6%2BwHf%2FRRGP1uhdZsDy%2FNg%2B7vwWaRb85VMIKGpJ8HUX6OpsLPlna13HXnBD70Mr5j2xcTE%2FA12vgq2PQH5TIN1hUZVi%2BbmZkcLgE0%2BtgCBJIjPWIhTPhiWBmkS%2FMbWzr7vxo8VMBpIhlZ5dUeFwNn8fDemulvfruQDWA9DjBLYeT6U7JFatQDulJiYyDIzM1lxcTFLSEhg06ZNCxjj5RqPxs%2B8ePHiPg82ceuH%2FFmHhUAxH6tEdSemulvvVnhAUADS4AA3wuJ4IwKMHbqioiJ27do19sgjj7DevXuzbdu2BYT5GBes8R4a75Uf7RSCPzvMh0wGd5aJu%2FWeCvJJ7dq162K8IQLNf6lRgR40aBALJMk3iH4L8UnwMI4%2B%2BeFcCBxX%2BNxlpNYw7urVqy3wkq32DREcuuElXj2EQ0K1JccjW46Ppyb6LGV73W%2FsyL3XUWrmCT32e%2FX19br8fmixVM8T44FxMeIyoa6CWnoODjZWzTx79uz5w%2FXr13X5%2FceOHVPe%2FlcZeqlgfizGhXvzGxoaaqGUR6iZZ3h4%2BFf4nL0eOnDA8fT2LUiqnA4xHhgX7s2vrq7G81qImnnizJq9e%2Ffew6t2Wgr2g%2BdLZRGvY1xTKesQOS58m48Fnak8WQSnVMEo4jROsNBSy5Ytw1qqLDbC%2B3%2BpddqX48K9%2BZoIp1Slp6e3lJSUaJL%2FunXr8FqFc63%2FHZyrd5s5ZtyYj3Ppmpubp8ydO%2Fe%2B2gUAjd%2B5c6fzR0WQvjHyWgWZ76Lz58%2Fvb2xsnJ%2BUlPQgNTWV%2BdsHwHM8PhLubDzUdlz4g91u%2F6vZ42VlnKmiomJbXFycJSMjY0tmZqb1mWeeYS%2B%2F%2FDJeO8dn1zrdtqmpiZWXl7Pjx49LvfrLly87n%2BMl42EZ71TO5mHWLnfmywUgAwrAjZaWlvxDhw4FFxYW%2BvusAZ7ji8D4CVAAZkH%2BBTzEycI4FRoETfNwMOufsFgPr2fBPLwS1OjJ5Qj47hV5W3ySqRukHpDf73kxntua79wJhBd8tGkYGDcFzBwvD6tC3WyKz%2BT%2FAAWgF6RT8P5ds3fuhDNfkWwcpr8zEv%2FNPonMJ5H5JDKfROaTyHwyn0JA5pMEFLcXeYi9K6j5CGRcsGCBg7372muvecPetdbU1PQ9cuTIlKqqqj%2BNHTuWW%2FauIXABqFX%2FqK%2Bvf1eD2m6x2Wx5qampqxDI%2BMEHH7DRo0dLxkNt9igP%2FB5%2BH5FrM2bMsNy%2Ffz%2ByrKxsQXh4%2BL%2Fr6uoqzRQPoc75WVlZuenp6VM3b97M5s2b5zeXD7fHfLZu3RoC%2BjIuLm4OdfgCtKlH4zdu3Kg6exfzy8jICO7SpcvnMTExc8j8AOvcIV9%2F9uzZqhvvXABmzZoVZLVaP42Njf0jme%2BfVHt82%2BTs3SDhzI%2BMjFRt4oaZ2btqxsE05kOvWjWGnZnZu2rGwTTmwxDqN2rlZWb2rppxMI35MqxJFXnD3q2qqpKSr%2FP51WbvqhkHM3X4Xn%2FiiSdCVGpFPGLv4jP4Q4cOlVJtrW%2BTYtVk78rH%2F7qI5n8L4%2BaVJh4p%2Bc3elY%2F%2FW%2BHMh97yEmjyVthstklG7B%2F5u3hdADtw6enpvmbj8%2BVxPG48foyDUR4YdmMHcWzI5UM8G1K6oBlNccedU1OIZUMAY3V1tfQHiqGhoUzr6wSomJiYbsglRONhcZocB7HMRyGQEbl8SJyEYCClq13ipBZCvEp0dDRbtWoV%2Fmkiy8nJ0cr8joikhvEIA8J8pQWAl3HymPlVCNBSbBUxYEzDq1%2Fduz%2Bcvjdy5EjJfPwLVV%2FkAfoV11fBceHk%2FuOQJgTK7J%2BAuZ%2FvNKtGCwM61I0bN6TXiIgIX3%2B3af%2BSVojpWu0pOztbGrbhPX9UIKFYyXyNtX37dmn%2BvdVqZYsWLZLu25P5HAv%2FeKCx8ecZ2jdv3pR6%2BT179hSyAghb81EDBgwQ%2BfD5eJjD7OxdMt8PmZ29S%2Bb7IbOzd8l8P2R29i6Z74c4YO%2BS%2Bb6KA%2FYume%2BPiL0rsPnE3hXYfBSxd70TsXedROxdPgoAsXdFa%2FZdCgCxd0Ws%2Bc6dQEbsXTHNV0TsXcGafRKZTyLzSWQ%2BicwnkflkPoWAzCcJKGLvyhKJucu1%2Bb6wd0Vi7ioi9q4sI5i7WsdDqHO%2BWuxd3pm73JmvBXuXV%2BYuV%2BZryd7lkbkbCOabhr2rEXNX9TiYxnwzsXe1YO5qEQfTmG829q7azF0t4mAa883G3lWbuatFHExjvlHsXV%2BlNnNXiziYqcOnO3vXH6nJ3FVE7F3zyW%2FmriKj2buGXdtH5qzdbj9hs9lKYJi2T499njhxgm3btu0Xn%2BMl4KSkJK8aAn9%2FixN7FwmkFUKZbwR7F%2BfWZ2Vl%2FeJzJHJ5ab7PIvauLL3ZuwhbxoR6%2B%2B232UcffSTN4Vu7dq2m3QVi73bSAjCd2bvJycmS8VFRUeyLL75ArIvXeXiBfCX2rgetgC7sXWTr43x7ZO2i8QMHDvT195qWuRtw5ushNBsR6yicrp2SkiK9j4%2BPZwsXLmSiSSjzy8rKHPPtT506JSVUQ0MDmc%2B7sGOncefOVKKnd8l8c0sP9i5PzF2uzNeDvcsTc5cr8%2FVg7%2FLE3OXKfD3Yuzwxd7kyX2v2Lm%2FMXa7M15q9yxtzl7uhnlbsXR6Zu9yZrwV7l1fmLnfmo9Ri7%2FLO3FVE7F0mHnOXW%2FPlAqAWe5dL5i6Xzb5LAfCFvSsEc5frmu%2FcCWTesXeFYO4KYb4iYu8K1uyTyHwSmU8i80lkPonMJ%2FMpBGQ%2BSUARe9dFIjF4ib3rIpEYvMTedZERDF5i76ogtdi7inhn8BJ71wPxyuAl9q4XBYA3Bi%2Bxd72QRgxeYu%2F6I63Zu859ALUZvMTe9VN6sHcVqc3gJfaun9KDvatIbQYvsXf9lB7sXUVqM3iNZO8aeYUP2btrrl692qJC7fGavbty5Up29uxZDD7LycnBOf4ebefC4PUrfsTeNUA1NTXss88%2BY0ePHmVff%2F01273bp6l3fjN4jWbvGmY%2BsncRQYoMWr33nZubK7UWyOJDZWdn%2B5qVz5fHndi7S4QzXyZvInt3BwRiLTJp9dq3Mgfv%2FfffZyEhITjFG5%2Fx12XfeJx4vHjcTGbvitjsS%2BxdZNBCIMbA61UYOqVhjYDXXzGNbjrhDF6cl4fI1cmTJ7Nx48ZJ8%2FL8qP1uWwc8Hvm40vA45eMdicdvZPyFY%2B8qJuOkzby8PBYWFiYtY6fvnXfekTqA3sgD9Cuxdz1oBTRn77a1tUnne9SZM2fYggULHOuuXbvGioqK2LPPPuvt7zYtg1coAufBgwfZ7du3Wb9%2B%2Fdj27dsdn6elpUnrsC%2FgrflmllDP8ClNPj7dgyYrCe8Govbs2SPN1RdFQtV8F8SKQwkJCayxsZGJJnp6V2ARe9dL8cTgJfau96MSMj%2BQpAd7VxFPDF5i73opnhi8xN71bj9cMXiJveuFeGPwEnvXQ%2FHI4CX2rofG88jgJfaum3M8zwxeYu86STQGL7F3PROXDF5i77YvIRi8xN5tX0IweIm9K7Doli6ZTyLzSWQ%2BicwnkfkkMp9E5pP4EbF3XUTsXZOL2Lueidi7LiL2rklF7F1BzSf2rqDmE3vXfOYTe1flOJjGfGLvqh8H05hP7F3142Aa84m9q34cTGM%2BsXfVj4O3Eo69i53CW7duOZZDQ0PZU089JZG5Hn30Ubfb88TeNdJ8hb27Xs%2BdIm2zurqa9e3bl3Xv3p3hvP6CggKJxoUcXm9O15D8mg%2FgxN7tb4QBQrJ3USkpKQiAZB9%2B%2BKG0jO99ELF3fZGR7F3FbKzthw4dkpbnz5%2Bvy34Dib1r6F09ZM8OGTJkpN1u3wTBWAxDpxw4lx6G9%2BWwroppiD1JTk52Hm5JBG74Hdgiqb0rZO9GwXENlTt3iZDOInvXSOMNN9%2BpBdCNvato9erV7Pnnn5eInG%2B88QZbs2YN3l1jSUlJXuVD7F11WgHN2bvOwlm7Cmp1w4YN7Ny5c3ixyJffTexdsykjI4MVFhYyGGpKxqPGjx8vVAyENR8J25hw3I537JYvX870ukRM5hukiooKRjJ4qEci89UZSxF7V1zzib0rsPnE3hXYfGLvCmw%2BsXcFNp%2FYu4IP9Yi9K7D5xN4V2HwUsXe9E7F3nUTsXT4KALF3RWv2XQoAsXdFrPnOnUBG7F0xzVdE7F3Bmn0SmU8i80lkPonMJ5H5ZD6FgMwnCShi77qI2LsmF7F3PROxd11E7F2Titi7gppP7F1BzSf2rrnMx2ejiL37UEFyPIQxv4XYuw8lx6FFGPODgoLqiL3rGF30w3gIYz7UnAvE3n0ojAPGQyTzjxN719EKvoDxMMIHQ67wydOcCvRm7%2BJMnrfeeqvddQhjWrFihds8tGDvQjwmCGM%2BPlAJ50vd2bt3795lR48ebXddVFSU16drphJ716gngw27to%2FMWbvdfsJms5XAMG2fHvscM2YMa2z8%2BbF9bAU%2B%2BeQTCcC8cOFCX7JUg707UrRxvuHs3V27dknGo%2FCqYHx8vC77Jfbuz82%2FIezd4uJitmTJEseFm%2BnTp2t5mMTeddMC6MbehWGhZHZzc7PE3l2%2F3r8uB7F3VeoEMo3Zu21tbXibVvqzBZyxm5mZ6fE%2FdHTyu4m9awZt3bpVQq7KHU6WmJjoWDdgwABpvUgSyvyGhgbHewQvYFIUHR3NRJNQ5r%2F55ptSIhk81COR%2BeqMpYi9K675xN4V2Hxi7wpsPrF3BTaf2LsCm0%2FsXcGHesTe9WGUxIv5d%2B7c%2BQ%2F0%2Bov3798%2FfcSIERZP5uV5Y7wLe%2FdLSLeh5%2F8xmR8gun379sWwsLDrcP5PaGpqCnr66af9unGD53icC%2BDcmZTZu%2BPtdnsiFjgzxyuIcai4uLi5YNIW6Adoxd6dC7X%2BgNnjxKX5cgGYAEblQwrG5%2Bz9zE5i70Liir0bzKv59fX1lb17986zWCx4uy4CTLsMBaEVXvFmlrupPcjevQHbnoL330LCB0vqoKmfDp2%2Bb3iJEbc131n4lBBOsJDZuwMhRXqwWTWkG7DdQezV88jeJQms%2FwFljw%2FjtKGimQAAAABJRU5ErkJggg%3D%3D)
+
 # Test data for "createUserProfileDocument" subroutine
-``` Typescript
+
+```Typescript
 /*
 * src/firebase/firebase.utils.ts
 */
@@ -91,18 +95,21 @@ export const createUserProfileDocument = async (
 }
 
 ```
-| userAuth | additionalData | Expected behaviour | Result |
-| -------- | -------------- | ------------------ | ------ |
-| `null` | `undefined` | Returns `undefined` | Returns `undefined` |
-| `undefined` | `{}` | Returns `undefined` | Returns `undefined` |
-| `{ uid: 'abc' }` | `{}` | Calls `firestore.doc('users/abc')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, and `additionalData` (if any) and returns the reference to the new document. User should then be successfully logged in as snapshot `abc` is in database. | User logged in. |
+
+| userAuth         | additionalData   | Expected behaviour                                                                                                                                                                                                                                                                                                                                                             | Result               |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `null`           | `undefined`      | Returns `undefined`                                                                                                                                                                                                                                                                                                                                                            | Returns `undefined`  |
+| `undefined`      | `{}`             | Returns `undefined`                                                                                                                                                                                                                                                                                                                                                            | Returns `undefined`  |
+| `{ uid: 'abc' }` | `{}`             | Calls `firestore.doc('users/abc')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, and `additionalData` (if any) and returns the reference to the new document. User should then be successfully logged in as snapshot `abc` is in database.            | User logged in.      |
 | `{ uid: 'xyz' }` | `{ foo: 'bar' }` | Calls `firestore.doc('users/xyz')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, `foo`, and any other properties in `additionalData`, and returns the reference to the new document. User shouldn't be logged in as snapshot `xyz` isn't in database. | User isn't logged in |
 
 # Error checking
+
 ## Stubs
-``` Typescript
-/* 
-* src/typescript-interfaces/current-user.interface.ts 
+
+```Typescript
+/*
+* src/typescript-interfaces/current-user.interface.ts
 */
 export interface CurrentUser {
   id: string
@@ -125,13 +132,16 @@ const CurrentUserContext = createContext<CurrentUser>({
   projects: []
 })
 ```
+
 This stub defines interface `CurrentUser` and implementation `CurrentUserContext`.
 
 The `CurrentUser` interface dissects the dimensions of a `snapshot` or `context` for a single user(defined by Firebase as similar to a packet of data).
 
-The `CurrentUserContext` implementation extends it's interface counterpart through a React `context` (`createContext<CurrentUser>`), and has it's values "*emptied*" and acts as a *stand-in* or stub for user data. This *stand-in* technique simulates as a platform (conventionally named as a *provider*) which can be used to pass down the current user data to child components in a React application, making it easily accessible and shareable throughout the application.
+The `CurrentUserContext` implementation extends it's interface counterpart through a React `context` (`createContext<CurrentUser>`), and has it's values "_emptied_" and acts as a _stand-in_ or stub for user data. This _stand-in_ technique simulates as a platform (conventionally named as a _provider_) which can be used to pass down the current user data to child components in a React application, making it easily accessible and shareable throughout the application.
+
 ## Flags
-``` Typescript
+
+```Typescript
 /*
 * src/firebase/firebase.utils.ts
 */
@@ -152,9 +162,12 @@ if (!snapShot.exists) {
   }
 }
 ```
+
 If the `snapShot` object doesn't exist, it means that the user data doesn't exist in the Firestore database and needs to be created. If an error occurs during the `set()` operation, the `catch` block is executed, and the error message is logged to the console.
+
 ## Debugging output statements
-``` Typescript
+
+```Typescript
 /*
 * src/components/login/login.component.tsx
 */
@@ -171,8 +184,10 @@ try {
 ```
 
 If an error occurs during the sign-in process, the `catch` block is executed, and the error message is logged to the console using the `console.error()` statement. The error message includes the email value that was used in the sign-in attempt, along with the specific error that was thrown.
+
 # Desk Check
-``` Typescript
+
+```Typescript
 /*
 * src/pages/projects/projects.component.tsx
 */
@@ -208,24 +223,33 @@ useEffect(() => {
 }, [currentUser.projects, currentUser.role]);
 ```
 
-| currentUser.role | currentUser.description | currentUser.projects | firestore.collections("projects").status | return |
-| ---------------- | ----------------------- | -------------------- | ---------------------------------------- | ------ |
-| "Admin" | "Didn't work" | ["proj-1"] | "Severe" | `{ id: 1, name: "proj-1", description: "Didn't work", status: "Severe"  }` |
-| "Triage" | "Pen test" | [] | "" | {} |
-| null | null | null | | `throws FirebaseFirestoreError` |
+| currentUser.role | currentUser.description | currentUser.projects | firestore.collections("projects").status | return                                                                     |
+| ---------------- | ----------------------- | -------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
+| "Admin"          | "Didn't work"           | ["proj-1"]           | "Severe"                                 | `{ id: 1, name: "proj-1", description: "Didn't work", status: "Severe"  }` |
+| "Triage"         | "Pen test"              | []                   | ""                                       | {}                                                                         |
+| null             | null                    | null                 |                                          | `throws FirebaseFirestoreError`                                            |
 
 # Use of Breakpoints, Traces, Single-line stepping
+
 ## Breakpoints
+
 ![](https://i.imgur.com/a83HOJz.jpeg)
 Using external plugin `nvim-dap-ui`, which is a common debugging tool for Neovim developers, it can set breakpoints which will stop program execution upon arriving at the breakpoint. By setting a breakpoint on `console.log('User has logged into the Homepage')`, I was able to log down entry points into the Homepage to check whether each reducer (component manager for each page/url path) was functioning properly. Furthermore, as seen above, the program halts whenever the breakpoint is hit.
+
 ## Traces
+
 ![](https://i.imgur.com/a83HOJz.jpeg)
 Furthermore, when setting a breakpoint, a developer can also view the call stack, which acts as a trace of class calls that have occurred to arrive at the breakpoint. Since the homepage is the first component that is rendered in the application, and the breakpoints show that the log came from `homepage.component.tsx`, I have determined that the flow of execution is correct.
+
 ## Single-line stepping
+
 > **TODO:** Implement single-line stepping
+
 # Readability of Code
+
 ## Meaninful Variable Names
-``` Typescript
+
+```Typescript
 /*
 * src/components/login/login.component.tsx
 */
@@ -240,9 +264,12 @@ const handleChange = (
   }))
 }
 ```
+
 In the code above, I use descriptive variable names. In addition, I use `camelCase` naming conventions for functions and constants, and `PascalCase` for classes and interfaces. This improves the ability for future developers to understand the code written and use varaibles correctly when making modifications.
+
 ## Whitespace
-``` Typescript
+
+```Typescript
 /*
 * src/components/view-tickets/view-tickets.component.tsx
 */
@@ -256,9 +283,12 @@ const currentUser: CurrentUser = useContext(CurrentUserContext)
 
 useEffect(() => { ...
 ```
+
 In the above code, I always use group variables, constants and functions together separated by whitespace because it improves readability through distinguishing the logical steps of the module. The 1st section retrieves project details, 2nd section is a stub that temporarily stores a list of tickets into the memory, the 3rd retrieves user details from the database and the 4th is a subroutine parsing behaviours.
+
 ## Indentation
-``` Typescript
+
+```Typescript
 /*
 * src/components/view-tickets/view-tickets.component.tsx
 */
@@ -297,13 +327,18 @@ switch (type) {
     }
 }
 ```
+
 In the above code featuring a `SWITCHCASE` block, indentation is highly important because it clarifies the scope of each case. This improvement is legibility assists in preventing future developers from referring to variables outside of the case scope, causing common Typescript errors.
+
 # Errors
+
 ## Syntax Errors
+
 Syntax errors arise when the source code does not adhere to the strict rules of the programming language. In the case of Typescript, the Typescript ReactJS interpreter will attempt to perform lexical and syntactical analysis of the syntactically incorrect source code according to the rules set forth in metalanguages such as EBNF and railroad diagrams. However, the interpreter will be unable to translate the source code into executable instructions due to the presence of errors.
 
 A common syntax error I encountered when writing my code was including commas when writing interfaces, as they are a class and not a function, as seen below:
-``` Typescript
+
+```Typescript
 /*
 * src/typescript-interfaces/current-user.interface.ts
 */
@@ -316,14 +351,19 @@ export interface CurrentUser {
     projects: Array<string>
 }
 ```
+
 ## Runtime Errors
+
 Runtime errors occur when a computer encounters issues that prevent it from executing instructions seamlessly. When it comes to the Typescript ReactJS interpreter, severe logic errors or compatibility problems between software and hardware can result in the browser freezing and eventually crashing. Nevertheless, Typescript in the events of web applications is designed to handle errors gracefully, often displaying the exception details in the console and attempting to continue execution.
 
 In the code below, it describes a common runtime error where the Type (or class) of the following constant `userContext` isn't a `string`, but rather a `json` and hence cannot be printed normally. To fix this, I added a dot function `.toString()` before `.toUpperCase()` to make sure the json properties can be printed in the console.
-``` Typescript
+
+```Typescript
 console.log(userContext[0].toUpperCase()) // Runtime error: TypeError - Cannot read property 'toUpperCase' of Type { UserContext }
 ```
+
 ## Logic Errors
+
 Logic errors arise when programs are written incorrectly, typically resulting from mistakes made during algorithm development prior to implementation in the final source code. These errors can manifest as either runtime errors or the execution of flawed code persisting without interruption.
 
 Since my project isn't a game and didn't require many loops for calculations, it didn't run into any logic errors.
