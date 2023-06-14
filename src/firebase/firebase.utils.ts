@@ -2,7 +2,9 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/storage'
-
+/*
+ * Firebase configuration.
+ * */
 const config = {
     apiKey: 'AIzaSyBcSu1C4Qdud_a52NOWikVSOj0njkwODpc',
     authDomain: 'bugtrail-v2.firebaseapp.com',
@@ -14,18 +16,28 @@ const config = {
     measurementId: 'G-VH49TBGZ9N'
 }
 
+/*
+ * Firebase initialise connection.
+ * */
 firebase.initializeApp(config)
 
+/*
+ * Create new user session.
+ * @param userAuth: Firebase user object.
+ * @param additionalData: Additional parameters of any type to parse user properties specific to role (i.e. admin commands).
+ * */
 export const createUserProfileDocument = async (
     userAuth: firebase.User | null,
     additionalData: any
 ) => {
     if (!userAuth) return
 
+    // Gets user ID
     const userRef = firestore.doc(`users/${userAuth.uid}`)
-
+    // Gets user properties
     const snapShot = await userRef.get()
 
+    // Assigns new user snapshot to any new account.
     if (!snapShot.exists) {
         const { displayName, email } = userAuth
         const createdAt = new Date()
@@ -45,6 +57,9 @@ export const createUserProfileDocument = async (
     return userRef
 }
 
+/*
+ * Gets user snapshot
+ * */
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
         const unsubscribe = auth.onAuthStateChanged(userAuth => {
