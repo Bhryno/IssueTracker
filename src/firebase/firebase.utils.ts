@@ -2,9 +2,20 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/storage'
-/*
- * Firebase configuration.
- * */
+
+/**
+ * Creates a configuration object for Firebase.
+ *
+ * @param {string} apiKey The API key for your Firebase project.
+ * @param {string} authDomain The auth domain for your Firebase project.
+ * @param {string} databaseURL The database URL for your Firebase project.
+ * @param {string} projectId The project ID for your Firebase project.
+ * @param {string} storageBucket The storage bucket for your Firebase project.
+ * @param {string} messagingSenderId The messaging sender ID for your Firebase project.
+ * @param {string} appId The app ID for your Firebase project.
+ * @param {string} measurementId The measurement ID for your Firebase project.
+ * @returns {object} The configuration object.
+ */
 const config = {
     apiKey: 'AIzaSyBcSu1C4Qdud_a52NOWikVSOj0njkwODpc',
     authDomain: 'bugtrail-v2.firebaseapp.com',
@@ -16,16 +27,15 @@ const config = {
     measurementId: 'G-VH49TBGZ9N'
 }
 
-/*
- * Firebase initialise connection.
- * */
 firebase.initializeApp(config)
 
-/*
- * Create new user session.
- * @param userAuth: Firebase user object.
- * @param additionalData: Additional parameters of any type to parse user properties specific to role (i.e. admin commands).
- * */
+/**
+ * Creates a Firebase document for a user profile.
+ *
+ * @param {firebase.User} userAuth The user authentication object, or null if the user is not authenticated.
+ * @param {any} additionalData Any additional data to be added to the document.
+ * @returns {Promise<firebase.DocumentSnapshot>} A promise that resolves to the document snapshot.
+ */
 export const createUserProfileDocument = async (
     userAuth: firebase.User | null,
     additionalData: any
@@ -57,9 +67,11 @@ export const createUserProfileDocument = async (
     return userRef
 }
 
-/*
- * Gets user snapshot
- * */
+/**
+ * Gets the current user from Firebase Authentication.
+ *
+ * @returns A Promise that resolves with the current user, or rejects with an error.
+ */
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
         const unsubscribe = auth.onAuthStateChanged(userAuth => {
