@@ -16,6 +16,12 @@ import CurrentUserContext from './providers/current-user/current-user.provider'
 import { CurrentUser } from './typescript-interfaces/current-user.interface'
 
 const Routes = () => {
+    /**
+     * Creates a state variable for the current user.
+     *
+     * @param {CurrentUser} initialState The initial value of the state variable.
+     * @returns {[CurrentUser, Function]} A tuple of the state variable and a function to set the state variable.
+     */
     const [currentUser, setCurrentUser] = useState<CurrentUser>({
         id: '',
         email: '',
@@ -28,12 +34,15 @@ const Routes = () => {
     useEffect(() => {
         const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
             if (userAuth) {
+                // Creates a new user profile document.
                 const userRef = await createUserProfileDocument(
                     userAuth,
                     undefined
                 )
 
+                // Listen for changes to the user profile doocument.
                 userRef?.onSnapshot(snapShot => {
+                    // Update the current user with the new data.
                     setCurrentUser({
                         id: snapShot.id,
                         email: snapShot.data()?.email,
@@ -45,6 +54,7 @@ const Routes = () => {
                 })
             }
         })
+        // Unsubscribe from the auth state changes and user profile snapshot when the component unmounts.
         return () => {
             unsubscribeFromAuth()
         }
@@ -56,6 +66,7 @@ const Routes = () => {
                 <BrowserRouter>
                     <Navbar />
                     <Switch>
+                        {/* Initialises separate page routes. */}
                         <Route
                             exact
                             path={'/bugtrail-v3'}
