@@ -5,12 +5,15 @@ import { CurrentUser } from '../../typescript-interfaces/current-user.interface'
 import './homepage.styles.scss'
 
 const Homepage = () => {
+    // Gets the current user from the context.
     const currentUser: CurrentUser = useContext(CurrentUserContext)
 
+    // 🔴 Breakpoint
     console.log('User has logged into the Homepage.')
 
     return (
         <div className={'pt-3 pb-3 mt-5'} style={{ minHeight: '86vh' }}>
+            {/* Flag to soft that if the user exists, they will log in to the User Dashboard, if the user doesn't exist, they will be sent to the registration page. */}
             {currentUser.email ? (
                 <div className="card border-dark m-5">
                     <h5 className="card-header text-white bg-dark">

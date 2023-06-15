@@ -8,6 +8,7 @@ import './defect-form.styles.scss'
 import { useParams } from 'react-router-dom'
 
 const DefectForm = () => {
+    // Defaults reducer states for the defect form.
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [defectImage, setDefectImage] = useState<File>()
@@ -15,27 +16,38 @@ const DefectForm = () => {
     const [projectName, setProjectName] = useState('')
 
     const { projectId } = useParams<{ projectId: string }>()
-
+    // Gets the current user.
     const currentUser: CurrentUser = useContext(CurrentUserContext)
 
     useEffect(() => {
+        // Get the project name from Firestore.
         db.collection('projects')
             .doc(projectId)
             .get()
             .then((doc: firestore.DocumentData) => {
+                // Set the project name state.
                 setProjectName(doc.data().name)
             })
             .catch(error => {
+                // Log an error if the project name couldn't be fetched.
                 console.error("Couldn't fetch project name: ", error)
             })
-    }, [projectId])
+    }, [projectId]) // This dependency array ensures that the array ensures that the effect is only run when the projectId state variable changes.
 
+    /**
+     * Handles changes to an input element.
+     *
+     * @param event The event object that was triggered by the change.
+     */
     const handleChange = (
         event: React.ChangeEvent<
             HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
         >
     ) => {
+        // Gets the name and value of the event listener.
         const { name, value } = event.target
+
+        // Switch case minimises boilerplate code.
         switch (name) {
             case 'title':
                 setTitle(value)
@@ -54,10 +66,17 @@ const DefectForm = () => {
         }
     }
 
+    /**
+     * Handles changes to the defect image input element.
+     *
+     * @param event The event object that was triggered by the change.
+     */
     const handleDefectImageChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
+        // Checks if the file size is less than 3MB.
         if (event.target.files && event.target.files[0].size <= 3145728) {
+            // Sets the defectImage state variable to the file object.
             setDefectImage(
                 event.target.files ? event.target.files[0] : undefined
             )
@@ -68,6 +87,11 @@ const DefectForm = () => {
         }
     }
 
+    /**
+     * Handles the submission of a form.
+     *
+     * @param event The event object that was triggered by the submit.
+     */
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         const uid = v4()
@@ -85,16 +109,20 @@ const DefectForm = () => {
                 .child('images/' + uid)
                 .put(defectImage, metadata)
 
+            // Listen for changes to the upload task state.
             uploadTask.on(
                 firebase.storage.TaskEvent.STATE_CHANGED,
                 function (snapshot: firebase.storage.UploadTaskSnapshot) {
+                    // If the task is in the "success" state, the file has been uploaded.
                     var progress =
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                     console.log('Upload is ' + progress + '% done')
                     switch (snapshot.state) {
+                        // Do something with the file (i.e. update database/display a message).
                         case firebase.storage.TaskState.PAUSED:
                             console.log('Upload is paused')
                             break
+                        // File uploaded failed.
                         case firebase.storage.TaskState.RUNNING:
                             console.log('Upload is running')
                             break
