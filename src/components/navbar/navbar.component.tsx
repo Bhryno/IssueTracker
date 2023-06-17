@@ -77,7 +77,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <span className="navbar-text ml-auto">
-                        {currentUser.email ? `Hi, Developer bryanrplee` : ''}
+                        {currentUser.email ? `Hi, ${currentUser.role}` : ''}
                     </span>
                 </div>
             </nav>

@@ -6,8 +6,8 @@ import './login.styles.scss'
 const Login = () => {
     const history = useHistory()
     const [userCredentials, setUserCredentials] = useState({
-        email: 'developer@nikhil.com',
-        password: '12345678'
+        email: '',
+        password: ''
     })
 
     const { email, password } = userCredentials
