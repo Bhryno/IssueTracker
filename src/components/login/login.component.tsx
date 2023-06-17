@@ -3,10 +3,6 @@ import { auth } from '../../firebase/firebase.utils'
 import { useHistory } from 'react-router-dom'
 import './login.styles.scss'
 
-interface UserLogin {
-    [fieldName: string]: string
-}
-
 const Login = () => {
     const history = useHistory()
     const [userCredentials, setUserCredentials] = useState({
