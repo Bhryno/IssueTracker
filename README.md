@@ -1,14 +1,14 @@
 # Choice of UI item selected
-
-| Element                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Consistency** ![](https://i.imgur.com/vwxMT9k.jpeg) | Using the Material UI design language by Google, I am able to create a user interface that doesn’t lead to logical contradictions. For example, the uniform spacing, size and pattern of the tables and navigation buttons alike enhances the predictability of the product and allows navigation of the application to be second nature and instinctual. Furthermore, the consistency of color implies the property of trust and professionalism.                                                                                                               |
-| **Clarity** ![](https://i.imgur.com/ie4jS0i.jpeg)     | A “clear” user interface doesn’t just mean that the next step is obvious, but also easy for the user. Having large navigation buttons on the left enables the user to not just understand the presentation, but control it.                                                                                                                                                                                                                                                                                                                                      |
-| **Usability** ![](https://i.imgur.com/096WOVg.jpeg)   | Usability implies the product’s ability to achieve a defined goal effectively. In the context of web applications, UI responsiveness is highly potent to the usability of it because of a wide array of dimensions across a wide array of devices. For example, the navigation bar UI element is only available in desktop and landscape tablet environments. However, when in mobile phone dimensions, the navigation bar compacts into a “hamburger” icon which (when clicked upon) presents the viewer with a drop down menu of available navigation buttons. |
+| Element | Description |
+| ------- | ----------- |
+| **Consistency** ![](https://i.imgur.com/vwxMT9k.jpeg) | Using the Material UI design language by Google, I am able to create a uniform spacing, size and pattern of the tables and navigation buttons alike enhances the predictability of the product and allows navigation of the application to be second nature and instinctual.
+| **Clarity** ![](https://i.imgur.com/ie4jS0i.jpeg) | *“Clear”* user interface elements doesn’t just mean that the next step is obvious, but also easy for the user. Having large navigation buttons on the left enables the user to not just understand the presentation, but control it.
+| **Usability** ![](https://i.imgur.com/096WOVg.jpeg) | Usability implies the product’s ability to achieve a defined goal effectively. In the context of web applications, UI element responsiveness is highly potent to the usability of it because of a wide array of dimensions across a wide array of devices. For example, the navigation bar UI element is only available in desktop and landscape tablet environments. However, when in mobile phone dimensions, the navigation bar compacts into a “hamburger” icon which (when clicked upon) presents the viewer with a drop down menu of available navigation buttons. |
 
 # EBNF and Railroad Diagrams for Typescript “if” statement
+## EBNF Statements
 
-```typescript
+``` typescript
 ifStatement = "if" "(" \<expression> ")" “{” <variableDeclaration> |<expressionStatement> | ifStatement “}”
 
 expression = <term> { ("+" | "-") <term> }
@@ -16,14 +16,37 @@ expression = <term> { ("+" | "-") <term> }
 variableDeclaration = "let" <identifier> "=" <expression>
 
 expressionStatement = <expression>
-term = <factor> { ("\*" | "/") <factor> }
-factor = <number> | <identifier> | "(" <expression> ")"
-identifier = <letter> { <letter> | <number> }
+term = <factor> { ("\*" | "/") <factor> } 
+factor = <number> | <identifier> | "(" <expression> ")" 
+identifier = <letter> { <letter> | <number> } 
 number = "0" | "1" | ... | "9" { <number> }
-letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" { <number> }
+```
+### Sample code
+``` typescript
+/*
+* src/firebase/firebase.utils.ts
+*/
+if (!snapShot.exists) {
+  const { displayName, email } = userAuth
+  const createdAt = new Date()
+  try {
+    await userRef.set({
+      displayName,
+      email,
+      createdAt,
+      myTickets: [''],
+      ...additionalData
+    });
+  } catch (error: any) {
+    console.log('error creating user', error)
+  }
+}
 
+return userRef
 ```
 
+## Railroad Diagram
 **ifStatement:**
 
 ![ifStatement](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlkAAAB9CAYAAACRWnZOAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAEZ0FNQQAAsY55%2B1GTAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A%2FwD%2FoL2nkwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAIABJREFUeNrtnQm4jdX%2Bx9c55iFDJ40K4QhJpYGSihIZylDRpKK6Ismj3KJBuWmeMxQNioqQEt2rNF5Ct4hLHHNUhmOIDOGc%2F%2Fos593%2Fbd99ztnnnL332e%2Fx%2FTzPfvbwvvt917veNXzX7%2Fdb6zVGCCGEEEJEnaRESUhmZmaJ9957764FCxbcuGTJktpbtmwptWHDhlzTV6VKlf3ly5fflpKS8tWKFSuGzpkz5z9%2BSH9hpDs1NTVTRT4%2BLFu2LOlwL29FsZ6r%2Fomi2J5IBxRxkTVt2rSekydPfmrp0qXlrrzySnPRRReZ4447zhx77LG5%2Fvf33383v%2F32m%2Fnyyy%2FNxIkT95cuXfr7NWvWXL98%2BfIViZz%2Bwkg3jbxNo1qsGFOnTp2YNop%2BKW9FrZ6r%2Fomi2J4kCkW1fSjUG2dVa%2FLYsWPff%2BWVVzrfcsst5sYbbzQlS5bM9%2FH%2B%2BusvM2bMGDNs2LA9e%2Ffu7bh48eLpfkh%2FvNKtRj5%2BjWIsRqB%2BK29FpZ6r%2Fomi2J4kCkW9fShWmCevVavW%2BBEjRnS2mWsuv%2FxyU6xYwZLD%2F88880xz7rnnFrequEuFChXWpaen%2F5jo6Y9XulNSUh6%2B88471WrFmJdffjnw2d7HwYdreSsq9Vz1TxTF9iRRKOrtQ3JhnRjT4PDhwztTgE4%2F%2FfSoHpvjjR49uliJEiVG2Rt4i1%2FSH490C3%2Fi1%2FLm93ouhJAO8J3IIrgN3%2BvNN98c9YwNzuBu3bolFS9efGRqamprv6Q%2FlukW%2FsSv5c3v9VwIIR3gS5HF7IG0tLRy%2BF5jSZ8%2BfUypUqWK24%2FvWyVb0y%2Fpj1W6hT%2Fxa3nzez0XQkgH%2BFJk%2FfTTT93atm1boOC2SOD4TZo0QTEXT05Oftov6Y9VuoU%2F8Wt583s9F0JIB%2FhSZC1ZsqQm0zPjQZs2bUxSUlIZ%2B2qampra0C%2Fpj0W6hT%2Fxa3nzez0XQkgH%2BFJkbdq0qfSJJ54Yl3Odeuqp7t2q2I321ckv6Y9FuoU%2F8Wt583s9F0JIB%2FhSZG3ZsiUpJSUl1%2F0yMjLMmjVr3Gvfvn2B3%2Ffv3x%2F4fdeuXTkew7uJVsGWt69L45n%2BkALl0rtt27aI9o9FuoU%2FibS82cYjUC%2F27t2bp3MkSj3xWL9%2BvbuOP%2F%2F8U%2FUljvzyyy%2FmwIEDYbdt376de1qo6du5c6drS8Xh064BC43SHnD%2F80Nhtg8Eg5kaNWocs2rVqg3Z7ZTb9rxCJY5kLYwdO3aYevXquc%2F%2F%2Bc9%2FzCmnnIIf13To0MGt8AqjR482Xbp0yfYY3nlsB3Skd73xSr%2FHsmXLTNOmTU3x4sXN9OnTTaVKlXL9TyzSfTgwYcIEM2fOHPP000UnNCfS8mYbD%2FPUU0%2BZN954w3Tt2tWMGjUq4nMkQj0BFuu8%2BuqrzfLly913roXvqi%2F5hzYS0frggw%2Fmum%2FDhg1dG1u1atX%2F2TZ8%2BHDz66%2B%2FmhdffDHX41xxxRVuMAys2s0sL8pkfkW3x%2Fvvv28%2B%2B%2Bwz8%2B6770Y9n%2BhjKEfBM91IM2ubnXfeeSpIhdSuASvAL1q0yPWht99%2Bu3nyySfzdK78tA8F1T3e%2F93JSpQo8WtqaurEffv23RnuoLltjxWlSpUyAwcOdJ%2BPOuoo9%2F7cc885gXXVVVe5xrdu3bqRHq68fZUpjMLUs2dPNyJ%2F6623XCOWRwot3X4EUR6JiC2qvPDCC%2BbHH390nVDnzp1Nq1atfFXeHn%2F8cSewrr%2F%2BevdiYKX6UjBYmLFmzfhOqvr222%2FN888%2Fb6pXr25Wr15tpkyZ4truiRMnxmy6fkFBwJUtW%2FaQ9HXq1MmcdNJJKkSFDAKffp%2B%2BlEVLu3XrZurXr5%2BfQ0XcPuRX99j%2FdLBi7kU76GVEUdZTdLgNr7IH7WB3mBzmoLltjwmlS5d2JkJAwb7%2B%2Buvm66%2B%2Fdt83btxoPv%2F8c7dCbF4EbbwLB89S%2Bu6778z555%2FvOr18Evd0424aOXKk%2Beabb0yFChXMrbfeaho3buzcCe%2B8844r7J6YmTZtmnuUAaONDz%2F80I1W586d6xpaGvj%2B%2FfubMmXKmA0bNriG7IYbbnAWJ%2F7Tu3dv50Kl4sybN8%2BZdZlyW7t2bXdsBAOPSEhPT3fbqFy2DDrzMRWPBhwB3q5dO3PxxRc7tzJuDY9169a5FZOXLFni0sKxK1eu7La9%2BuqrrApsPv74Y3fuCy64wNx9990FXnG4MCHtWLMuvfRS88QTT%2BRHZBVKefOgjMAdd9yRnwFJoac%2FGnz11VfOLYfFPrgdwVXCbKxJkyY5a87WrVudlYgp8J4wwFJ%2BxBFHuBlVtJVYYLBwem6WPXv2mMcee8zVHz4zKMFSU758%2BcC5Vq5c6SzBWL8YyDKgDQd1a9iwYWbhwoWmQYMGrm4FP2fujDPOcLEw1CvqPOWS%2BvvDDz%2B4coolA0sl10J62daiRYvA%2F6mXXA%2FtBO0nVqVgCCcZMmSISyfXx%2BNnuBavfjPgIO2zZ8923oTbbrvNtWf%2F%2Bte%2FAnmHkKddYPv3339Px2qGDh3qroP1m7gPnMdj8uTJ5oMPPnB5es0117h2B1asWOHuG20T%2FRRp7tu3rznrrLOkkKI0UADaePoO2ol8iqy8tA950j2euLIfq1I%2Bgg8STPGsg66zfxiPuSuP26MKMSZ06LyIvfr5558DMU2YDqk8iQ4NBdDI%2BAkavMWLF5t%2B%2Ffq5jpoGDlcOQof7gMiC%2BfPnu8bEa%2BQRWVwr94tR4IwZM8w999wT6EBpFFu3bu2OQWwFYg6hzL0eMGCAa6zZjlBC0OF2OPvss90xEXt0NtC%2BfXsnvHv06OGsHVOnTg2IMiohUFYQGxUrVnRCj4aVRtFzY7z22mvuuuiUOnbs6Nwqb7%2F9tu8bJDrWWrVqOeFIZ%2BonPDHAvT5cwZpCnUIEeQwaNCjQ2XNPGzVq5OogYoCZU5s3bw6ILNwpDzzwgBMIf%2Fzxh2snvfpBfaP8U%2BeoUwyGQh%2F1c%2F%2F997s61bx5czfoQASFwiC3ZcuWzlLF%2FngdGGQFC5JQOA%2F%2FY9AJtC0cm98RQ1yP16YjkB566CFXf2l%2FPvroI2M7uP8RWVwf6UAQ0T7x7DsPLGnkzSeffOLaAgZgwXl3%2FPHHO9FKmshz2gHKXbVq1QJiccSIEYGBPu0D7de1117rBBb3ZOzYsQFheu%2B997p0k28nnHCCuybEloge3CMglCiO5Kh7EFe1a9f%2BxX6cZMVV1XB%2FzumgTsHltj1eli38sIgrRgyM0kNHNonIggUL3DtWIL9ATAajU17JyQd1%2BKxZs5zJn4YEqxNTbxnxIWhoiGhsPdgHSwQw2qCRpPEBRqyffvppwAqG%2B6BKlSquwQLWM6FBnTlzpmvwsIDRUCKUaHC90XhaWpr7nQazWbNmYa9j%2FPjxbmR53333ue%2FExTG6%2FuKLLwLH4loYHQGNOMLkpptu8n1jdM455zi3G%2FeSEXsig0WDTor7gmjH8hFcng43GFTQSSOMsH7ThjAg8az2vXr1Mrt373bWF%2BoLsXf%2F%2Fe9%2FzYUXXui2IzpwzXkwWPKgHmHJ4nj8n32Dn40H7733XiAmixiscePGmUsuueSQfbBAUa%2BxDnn1lv%2BRDgZK4cAzwXVhAUPsUPepx9Rxb%2BDMb1w%2FVi%2BsRnwG8gFRRTsU6ITsIAuLG1ZuruWyyy4L1HWPZ555xokeD8SVl3dYsckP0kwbgCUMsYWICgdtGMfz2g6sFYMHDzbXXXed%2B4713RvgkVbyiHKdD5e3yAYsqwyEEdB4MMjbgsb55UNsOd2TmZnJg6cfCbVcRSqyPObbV6vcttuTrrIn9UUchE1nZjzPRwMAXkyZH9LtWZlOO%2B20Q373rHG4FmhAEC24%2B4IbMa%2Fx8cCiQqPmWSAZ8QbHTDH6RNh4U2w9GHVyfNJA40XDjSsBlwTnR8jRyLONhviuu%2B4yJ5988iHHwIQf%2FAR70kWlRHx4DaUnIj3rSbQtP%2FEubx4IV8jvbLB4pptYC88Sinj33DF%2BzPdogWWGGE7EBe5y6h6iAh555BG3jQED95lBR7AF6ZhjsncwUL4ZRGC9wR2LxTm72YRZ%2BejcaKFQbwnXwPXmgQswt9neWJOPPPJI93%2FaBU9EeWDFpjxgoQqN3Qquq17ZJp8QMuQFeRB6LUcfffQh3%2F%2Fxj384ixT7sy236%2FfwZrQHxwDzmTYm%2BPqD00o7FTwr3s%2FtSaLAAAzxjZeEAQKT3rifcc7H%2BVZgtUH723YqIxJl9j%2FYwjrLFpL19iPDF6Yo3Z3TdluQnshjYFihFRQ7gkmKZ0H3zJtUZi9WINHTTZpr1KjhZullB7FVCCAKPGb%2F7EYTiEysV14%2BhEJDhEjDJRwORoZ0DAgxRpJ8fumll5yLAjcDHQAjaNx9WEFCr4N4jWBovIPjT7ITh34tbx5eZ1euXLmETzcDEEanxMsQJ0d5It4uxvlezKavmm0s69n7zigBs%2Fgi2671soOMZYU9wKPzYDYgsYRYd4hvBCyTxEpS1j0hjRUpUrAAYE365z%2F%2F6b7jXs%2FJI0B9CdduUYcQOA8%2F%2FHDE50aU4a5k8MR1YUXCWh5a7xiQ8Rvv3jWGg3xAeGLpQ9QgtsK5NoMteljtyDtPiJKWYAhbCNtR2vNgiSOMwbPy5dSWJHL%2FFQ3sYDXV6oBX7EdGx%2B%2FafJtp79limz58qwdi1a4hzgllwZ2LSz0vZT%2Bv%2BRiavmDdY691pBXnr1thjX%2B6h73%2B7eFchU5whx6Efs0eCLm%2BzoqnujYx%2FXLbHs8Zh37Ds67QOPoFgkwRM4gXD0Zx3ogWtyGxH7j9GE0QBxE8kvasVowQcVvg5sju0QlYo2gYg90A5BVuBBpDGkbcXcRgcRxEG8f3Anwx83fv3j1gMQyGtJFGXB6AO4KgW889WJTxylu8Z5XlB6ybiGTKCoHYWG5CxXEMOGDbrpW2nE2lDbPlt7ptKL%2By79%2FZxrVFYecJZZvROkIGa4%2FXsWMZQVB49YllB7zlbCKBGCHy26uf1I9QsDABcS%2FEHOGWD4VYJgZG1FMP4iXD1UOs4m%2B%2B%2Baa7FtxtuAexTPMevBwE14GYxNKNu9sLMQDah1ArM9dCPpAfiCPahNyuPTjvEJjBx0RM4kbMDtyRWPA9sKDQxhxuUD%2BoJ1n1pTr1J6serYxUYOUX4mgpY8Tr4arOzjUdTbLTPStWrFjEu%2F1e2wos%2FMQ7bJ6sy8mSxUGwTM3hIGGEU27bRRhwS2GNIT4IU7gfwG2GwCKuitE0jTINL%2FFLNEIEwyK0sJIw5R7RQnyWt9wGVgncGfwHk3pOweS4I5ihxAwpRop0IjSCLEHAshe4SxjxEivBd8%2FiRSXDkkXsztq1aw%2BJQfGgoWYf4uFwE9IhMJIPtwZQUYLYMgKasVh468z5Bc9ygVuJ9MeL5cuXs3rrkNq1a8%2BnwbTlpXGsLFqRgihBcAZbi5hlheWX%2B0q9wF3uxTRFAjFJDFg8NzoDqlAI2Ea0EEyP0AsXo4S4wEVPWhAnTFjAukA8pYe3thTbcf1xLd5jVJjFhzWcWcsILdoSrETE2gIWTdoErg8rEtfoBe97MLiiTWUfxFO4awkG9yhCiThRhBwDENocD%2BJ9EFHkLcHvoaKNmGD2YcYg%2BUP%2Bcw2HE1kWrAn2%2Bm9EWMX7%2FNEKv8kDueqerN%2F61ahR4wlbrgeEWraSsjo6fAsjsnP75bY9H0o4E7NfvAiOy4mWGyTS9BMvQbwRDda%2F%2F%2F3vPE07Lcx0ezDSw3QfPDU7J4j3IKAUky7m9Ej%2FB8wmREyFuh75nTSEiiPiSshfLF002tnBiJxOmw48Lx2SH8sb0HERrIzwJYbNT%2BUNNxkzchH3zAjNy3Ia0Uq%2F7bQH2fLWzB4jqmaKaLZ7WGcRH6ExR5GAy46ZvnRU1LdwMHBhW26dGbFKpAXRkt8ZodRjBlfhRDXppAxklw5vxiBxXpG67tgfURYuds27Htqt7KzvWFlpj5id6Mf%2Bq4Bl%2BF9WQHxtBdaQeNcH7gvinkEkVtPQeL5o52N%2BdQ%2BzD7PE1t%2FseQ6uk2UPUiOng%2BS2XWQPIyVmyrAeC8sNECiaXXxSIpLfmWk00Nk14NmR3XOssvs90g6G%2FPZTnhdo2DVhgrMCIuy9mV9%2BAuspM0sJ7uYV6Yrv0cS2d0%2FbDrYXD5K1jeSCRMyngnTwWKZzW2Az0gU4EXoFXawzp3qcUxC%2FZxHL6%2FlzatMiuZ54WlgTiawHKzew9aN9vM%2FNwJ1wD8AayqzyOLQD%2BdI9wZYtV6aCfsztT1HDW4guHos%2BYk2JNnlNP4sKYlbGHM4IMRJrVizSHQ8QknE05R4WRFrecGHwIiAY10mwK8QP9QRYjoPZrUyrh0inv0cz%2FatXr95jO5RxWQ%2BSXaASKIRrXzolJSWNo37Eu31gIgzhIriVvYVJY60DCqp7vP8XyjO%2BKlWqtD89Pb14fkzdeSWnQMZ4pp9A0cJOdzwIna0j4lfecGHk1%2BqTKPUEcP0wVbsw0581W6qvSp8Qgfalia0XzxdG%2B5AfYZUo%2FWlyYZy0YsWK24iziQdBs9ZYIvaAX9Ifi3QLf%2BLX8ubnem5H1%2F%2B1nUqqSp8QAZGVSr2QDvCByLIj1a%2B8x6PEmqAZIhvta4Nf0h%2BLdAt%2F4tfy5ud6vnPnzg121F5FpU%2BIg1AfqBfSAT4QWStWrBg6ZcqU%2FbF%2BrhOr8QY974o1PNb6If2xSrfwJ34tb36u5%2BvWrSPupLRKnxABSmfVC%2BmARBdZc%2BbM%2BU%2FJkiW%2FZ92UWMI6LkEr%2BP5pP8%2FwQ%2FpjlW7hT%2Fxa3nxezzlgkkqfEAGSsuqFdECiiyxYs2bN9cOHD98T%2BiiUaMH076DViFGvjZKSkiYmevpjnW7hT%2Fxa3vxez4UQ0gG%2BFFnLly9fsXv37k7du3c%2FEIuOg8dBBMGDv%2BZFc82bWKQ%2FHukW%2FsSv5c3v9VwIIR1QEIoVZgZv3rw5rUKFCr9MmTKl%2Fa5du5J4XEFB1s7C98qjGIKD6axqJZdbZmRkdN2yZcvWREx%2FvNKdkpLyMI%2BZEbGFh9B6pKenDz5cy5vf6zn1JZr3T%2FVPJFJ7Utj1oajogNwoXtgFaOnSpW%2FUqVMnefTo0SPefvvt4iyi2K5dO7cIYY0aNXL8r70h7gHCs2fPdrMHeAp78FPUyVj7vbn9eDOKOVHSnwjpFv7Er%2BXN7%2FVcCCEdkB8SJrDTZnArmxE8eLKYzZSCPmAO3yumwVb2WN3sDfzUJ%2BmPabp5VpSqc3yJ1bPG%2FFDe%2FF7PqS%2FRvH%2BqfyJR25PCqA9FUQeEo1iiFJ709PTllStXHp%2BcnFzTfq1iM2Wlzei99h1rW8lc%2Fr7T7rve%2Fneu%2FbzQvqrZ16aMjIwuaWlp8xI4%2FXFNN6ZeXph91VzFrVwPPlzLm9%2FrebTdI6p%2FIlHbk8KoD0VRB4SjeCIVoCxTXgceRGkzhucktTQHrW3lcvlrebvvNpvBlexrrv08uDCCX%2FOR%2FoRIt%2FAnfi1vfq%2FnQgi1D0IIIQqA3HtCqD4UlGRlgRBCCCGERJYQQgghhESWEEIIIYRElhBCCCGEkMgSQgghhJDIEkIIIYSQyBJCCCGEEBJZQgghhBAJSHFlgRBCxB4t5ijiTWE%2B61BIZAkhRFxZunSpMkHEhTp16igTEgC5C4UQQogiCNZTWVAlsoQQQgghJLKEEEIIIYRElhBCCCGERJYQQiQYmp0lhOqBRJYQQkSbqlWrllYuCNUD1QOJLCGEiDLly5c%2FRrkgVA9UDySyhBAiyhw4cKC%2BckGoHqgeSGQJIUSUSUpKaq5cEKoHqgf5RSu%2BCyFE9lxbvXr1gatXr96jrMidCRMmmDlz5pinn366wMeaN2%2Beef75582CBQtMyZIl3QrmnTp1Mp07dzYZGRnmvffeMx07djSlS%2BceLrRnzx4zadIk06VLF5OcnFi2hU8%2F%2FdSceuqpxD0l5D215Z8MvlalO3%2FIkiWEENmzsESJEv2VDZFRr149c9lllxX4OIsXLzbt2rUzF1xwgZkyZYp55513TNOmTZ2wggMHDpi%2F%2Fe1vZufOnREdj%2F3Yn%2F8lGo8%2F%2Frj56aefEvaeZpX%2FhSrd%2BUOWLCGEyG4UmpzcOyMj47vatWvPT0tLmxqv8%2B7du9eMHDnSfPPNN6ZChQrm1ltvNY0bNza%2F%2FPKLExw9e%2FY0lSpVcvtOmzbN%2FPXXX%2BbKK680H374oUlJSTFz58413377rTnzzDNN%2F%2F79TZkyZcyGDRvM%2B%2B%2B%2Fb2644QZnceI%2FvXv3Ntu2bTOvvPKKsxydeOKJpk%2BfPsZerzv2jz%2F%2BaMaMGWPS09Pdtm7duvGoFvPbb7%2BZ4cOHm9WrV5ujjjrKCaKLL77Y7Nu3z2zfvj1wHevWrTMvv%2FyyWbJkiUsLx65cubLb9uqrr5pzzz3XfPzxx%2B7cCKq7777bFCtWzHz22WemYcOGThgFC7jbb7%2FdfR43bpx7f%2BGFF0zZsmVN%2B%2FbtzdFHH22effZZd52ZmZnmjDPOcP%2FHCubt%2F%2BSTTzpL1tVXX21q1qxpFi5caEaNGuWug7T07dvXHY90ky6OQTqTkpJMv3793DFGjBjhrp98vOKKKwLp%2B%2BKLL8zYsWPd9V9yySXunnEu8nDFihXuuGwvVaqUue%2B%2B%2B1we85%2Fff%2F%2FdfPDBB85i16hRI9OyZcuEKf82jW3ttfez19HY1gM9eDM%2FbYiyQAghwvPzzz8vs29X2Y5mjO1wBtWqVatUPM6LmMGaQ8feqlUr07VrV%2FdwaYSOTZMTWTB%2F%2FnwnDE4%2F%2FXT3HZFF579r1y7nWpsxY4a555573DbEx5AhQ0zr1q3dMTZt2uTE3OWXX%2B5EyYABA0yDBg3cdoQCgg4RcfbZZ7tjIva%2B%2FPJLdyxETfHixU2PHj3MKaecYqZOnRoQZQg4QLxdeumlpmLFik7obd261Ymx%2Ffv3u%2B2vvfaau64jjjjCuf1Gjx5t3n77bbetbt267trGjx9%2FiGjjnHDMMQcnu5Ef1apVM%2BXKlTN%2F%2FPGHe%2B%2FQoYO56qqrzMSJE931Bu9%2F0kknuf1xMSJqEFvnn3%2B%2B%2Bfvf%2F%2B6EkCfqEFkDBw50ogzxx3G5ZkQerr3zzjvPdO%2Fe3e0HnIt8Js8Rknznv%2FDDDz%2B4%2BzV58mTTpk0bJyLJT0BwlihRwglV0nXkkUcmRLmnnFPeKfeU%2F6x6IGTJEkKI6LJs2bLPrZBgJP%2BK7XR6paamvmtFyUz7ebHdtsbuElUfFK4jLCy8vPihWbNmObfZvffe66xOF110kRk6dKgTNFhWqlevHvg%2F%2B9xxxx3uc%2F369Z1Iw%2BIDWHWIAfKsYIiBKlWqmEGDBrnvTZo0MR999JGZOXOmE1VYwBAGCCUEExDflJaW5n7H8tKsWbOw14FAwuqF1QZw92EZwnrjHYtrwQIGq1atchatm266yW3nfw888IATcogpzsO11ahRw7Ro0cL9B3GGQPHgOtavX29WrlxpmjdvbmbPnu1%2B9%2FYnJgtRAxwbyxlCCxBPCJ3du3e778cdd5yL4%2FLO8%2Babb7r74Ak2XJfcI2KpEFTkMYINHnnkEWclRLwB14ioBNJFviCEEcdYHrmfiN1CpJhNUzVbrutlBbl3ta9FWLAksCSyhBAiHhatS21H1JA%2B13ZEfex7bTomE%2BXVsD0r02mnnXbI7571o3z58uaNN95wooWOnE47GFxbQRYJJxqwKgGuKk9gAdYxhA0CIxjcfhyfNODWwsKFUMFKw%2FkRO4g3tmHpuuuuu8zJJ598yDGwDBGsHpwurF7Lly8PiKzgIHREHW44Dyx0vHDlYXV66623XLxXsPgMhmtBoAGuRSx3OcVgkc9ff%2F21efHFFwO%2FHX%2F88ebPP%2F%2F8n7RhbQuF37DKYQXk3J570CPYKoX1ygPB6uVxvLDlNDOXXdi%2Bxt6jNPuOMm1lBxALVPMlsoQQIp5WLTqefHU%2BEXR0gc4baw2z9LKD2CoEEC4oXIpYQ8JBLBXWq3AiwRNsiDTivMKBpQzhgxDDUsPnl156ydx%2F%2F%2F3mzjvvNN9%2F%2F31glh%2FuvdDrwKoUDC49zhmOYHEYDFY6XrjteMeN6VnuEDgegwcPdvFMvAMWOdKaUz5zDbgsQ0EIRgrpxp1IPoQK40hhtmSMy60ei1NIKCZLCCESCFxOiBlvJh2sWbPGCRrAbTh9%2BnTn9kNU3HLLLYd00p7VCivOc88959xQCK1wYI0iyBw3mAfuStyBiCbiwnCbEY%2FEcRBtHJ%2FzI1JwgxGbxO%2BhkDbS%2BOuvv7rvixYtcvFJnnswJwhgx1qHS80TIQSvY2kirorYLIQN6fQgvsxbzgGX5ueff36ImOQ%2FVmwEfsPdSVD%2B5s2bA%2FlFTFt%2BaNu2rZsl6LkaOf8nn3wS0X%2BxLAZfhyhayJIlhBAJBG4zBBZxVQ8%2B%2BKBz8dF5E7%2BESCCOCKGFyKBjR7QQn0WgNhA8jmuN%2FxBA7gWTh4PYoGHDhpkbb7zRCRRcWAiyd99917nNWJMK9xYz4%2FjuWbweeughZwXCorR27Von5kI555xz3D7MisRNiJBg3atI1oMi3Y8%2B%2BqgLmEfksQQDcVnEeXmCEdclgeYEj2O9Yt9rrrkmcL3eZADg2m677bZAID5WuV69ejmrGLMYsQQSmM9%2FmKWZV4jJ4ni4Z71jEeuFkMsNgukRygT%2Be2JNFB1kQhRCiPACJDOabhaOR%2BxOXsCihTvq2GOPjWh%2FYpJYioDZibjmIv0fIDgQU6GuR34nDaHiaOPGjc5igwjygsnDsWPHDic6CLAnkD4vYDXjOvgf%2Fw%2BF4yIMWb4BsHxhmSI4HXEaChY3XIzBwfKIUWLg8pO%2BUEgracbi5s2EjATS7S2TES2C4%2BGiUY6jXR8OF2TJEkKIBAUBkx8QS7zyQnYdfHa%2Fe8ImN3ArZhcTlhu40oID9UPx1twKvm7cidkRLnYNYZXTf%2FICVkhe8bhfQiJLCCFEHGG5g2ArjRBCIksIIUQUYNkFIUTioNmFQgghhBASWUIIIYQQEllCCCGEEBJZQgghhBBCIksIIYQQQiJLCCGEEEIiSwghhBBCSGQJIYQQQiQiWoxUCCFVYlf7AAAHl0lEQVTiRPDz5IQQRR9ZsoQQIg7wcF09YFcIiSwhhBBCCFFA5C4UQog4ImuWEIcPsmQJIYQQQkhkCSGEEEJIZAkhhBBCSGQJIYQQQgiJLCGEEEIIiSwhhBBCCIksIYQQQgghkSWEEEIIkYhoMVIhhIgDqampmcqFwkELwAqJLCGEKOIsXbpUmRBn9FBuUZjIXSiEEKJIgxVRlkQhkSWEEEIIIZElhBBCCCEksoQQQgghJLKEEKLQIYZHs9KEOFgPFNMmkSWEEFFjT9WqVUsrG8ThTlY92KOckMgSQojoDN2TkjaVL1%2F%2BGOWEONyhHlAflBMSWUIIERUyMzOXHThwoL5yQhzuUA%2BoD8oJiSwhhIiWyJptR%2B%2FNE6STM2vXrjXr16%2FXjRFxh3pAfVBO5B2t%2BC6EEOE7lon27dPq1asPXL16dVzjUa644gozePBgc%2Frpp5sNGzaYli1bmhIlSpgKFSqYmTNnmmnTppkRI0aYlStXmnLlypn69eubG264wVx88cVm27Zt5rPPPjOdO3eO6FwbN2403333nWnfvn3C3YPx48eb1q1bmyOOOEIFspCw5Z94rGttfWil3JDIEkKIqLBs2bIFqampC6246W%2B%2FDonnubt27WqOOeZgONjYsWNNo0aNzOuvv%2B6%2Bf%2FLJJ6Znz57mqaeeMk2aNDFbtmwx06dPN5MmTXIiC2tX%2F%2F79IxZZaWlp5sEHH0xIkdW3b19zxhlnSGQVIlnlfyH1QbkhkSWEEFEjOTm5d0ZGxne1a9eeb8XI1Hidd9OmTVjSnADCalWyZEkzdOhQ06xZM%2FcdS9c111zj9j3ppJOcxWv%2F%2Fv3u%2B7hx48zu3bvd%2FnDzzTc769aoUaOcVax06dLmoosuMtddd11g%2F61btwb2R8BVqlTJfPnll07gsa158%2Bbm9ttvN8WKFTMLFixwz2AsW7as216lShVz3333ubS%2B9dZbZteuXU4cnXvuuYHrwSL10UcfGZuXTvx17NjR%2FY7Fzeaxc4VyXccdd5wZNGiQO%2BYHH3xg9u3bZ0aOHGlSUlKcNQ%2BxKeKHLfdtbTnsZ%2B9RY%2BVGPtsQZYEQQoTn559%2FJtj3KtvRjLEdzqBatWqVisd5X3rpJfP777%2BbMmXKMLPLCZpq1aqZihUrmnr16pkZM2a4F4ImMGIufnDMjAUM4cL%2BvBBomzdvdgIGYXXZZZc5QYVA8vbHFentz2cEUb9%2B%2FUyHDh2cYJo6dWpAhP3000%2FmjjvuMB9%2B%2BKFp06aNSycWtMcff9ycd955TvRhiUMgAb9jhbvtttvMTTfdZB599FEzefJkt41rIE02n82VV15pVq1a5axwgNBCaB5%2F%2FPEuXbJmxQ%2FKOeWdck%2F5z6oHIh%2FIkiWEEDmwbNmyz0855ZTGGRkZr9hOp1dqauq7mZmZM%2B3nxXbbGrvLgVidu2rVqsae2wmla6%2B91v1mz2%2FWrVvnLFR%2F%2FPGHqVOnjrM03Xvvvc7i06JFC%2FPss88G9oemTZu61%2FLly81vv%2F1mGjdubObOnesEDvvjagze%2F8knnzTPPPOME0%2BAMOJ8WJm842EZA87fqVMnZ4kCLGpswzp1wgknmBdeeMHMnz8%2F4P7k%2FBMmTHACDrp3726GDDnojWV%2FLGlw4YUXOuHYrl07LCoqiLGlmC1X1Wy5rpc12aOrfS3CgiWBJZElhBAxJaujudR2RA3te0fbEfWx77XpmEycV4X3XIePPfaYswDhvhs2bJjp0qWLswyF46uvvnLWp6OPPtqJItx9DRs2zOl63f64Bz0Iug%2F0yEG%2FY2GynfP%2FdypWGGF5w5KF0MJ1iZAL5qyzzgp7LNyUngUsFtj7pVXLw0O%2BrLHlOs2%2BM4uwlWKwJLKEECKuZHU8%2Bep8ot3B40qrW7eue%2BFOw3WH2OH3YNEDuP7uv%2F%2F%2BQBwWQfNr1qwJHCd0f1yUuBPPPPPMAqWR43D8efPmOddnAtw%2FPSZJxBXFZAkhhI%2FALUjM1F9%2F%2FeW%2B79271wWJn3POOU7QELe1Y8cOF%2BTuwb6lSh0MJyOQfdasWYFt7M%2B%2BuB492rZt62KpsELBnj17XFxWXiGeCosZ7kbW%2BvLO%2F8UXX0T0fyxbVhjppgvfIkuWEEL4CNx9AwcOdIHkRx11lBMtuN9Gjx7tthPXRBA5v2E9YmbfAw88YHr16mUefvhh587D8uVBIP35559vGjRo4ILemfGHO7J3794EQLs4L85BDBXiK6%2BMGTPG9OjRw9SsWdO5HDnWgAEDAvFeOUEa%2BC9p6NOnj7tmIfyETKdCCBEHcBcSCxUtWOYBSxPCBYtPKCwyimiqXLmy%2B759%2B3b3Ipie2YeheLMZsWx5YBFDFDEzkWMVhPT0dDcb8sQTT8zT%2F0gz13nsscfmW5R6yF0o4o0sWUII4UNY4iAnCHIPBvEULKBCCSdiCGqP1tIJWKN45ZXc0i1EIqOYLCGEEEIIiSwhhBBCCIksIYQQQgiJLCGEEEIIIZElhBBCCCGRJYQQQgghkSWEEEIIISSyhBBCCCEksoQQQgghJLKEEEIIIUR%2B0WN1hBAiTgQ%2FR08IUfQppiwQQojYk56ePphXSkrKw8qNwrsHygURT%2BQuFEIIIYQQQgghhBD%2B4P8AROF3UVIJ2sUAAAAASUVORK5CYII%3D)
@@ -59,10 +82,8 @@ letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
 **letter:**
 
 ![letter](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAAEBCAYAAABR4noWAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAEZ0FNQQAAsY58%2B1GTAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A%2FwD%2FoL2nkwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAElpJREFUeNrtnQtQFEcax5tlVSwMKko0SiQeLHherjRcqtSLKZMYPS8aLkZNSUq0fJ%2FR09LomYvm6mKZsgiEykPFpIKWgiBQlmViKeeJZSLlK3o8ohgUHyhKEPFijmfQ9b5vnNnsbYB9zWOn%2B%2FtXde3Ozk7Pzvfv7umemf4tYyRhFcTrgT148KDLrl27lpWWls48f%2F687c6dO91qa2vdHm9ERMS9Hj16%2FNCnT5%2BvLl26tOHkyZNnyHwTaf%2F%2B%2FYv27NmTUlFREfrKK6%2Bw5557jj322GOsf%2F%2F%2Bbrf9%2FvvvWU1NDTty5AjbvXv3vZCQkNNVVVUzKisrL5H5gV3bLTt37szdtGnT1Dlz5rCZM2eyrl27%2BpzfTz%2F9xHbs2ME2b97c0tra%2Bmp5efkBnuIVzNPBxMTE5G3ZsmUqmM9eeuklFhzs3%2BHh9vHx8WzEiBFWaE2mh4WFVdfX1xeT%2BQHY1Kelpa1C44cPH65q3ni6gAJg2bt3bwIUgOvQfygm8wOoc5eSklI4adKkrljjtRAWgKampiDoQE4MDw8%2FDS1ApdnjZuHBfOzVX7x4MRTP8Vpq6dKlrFu3blZ4mwunmGgyPwBUVlY2C2q9X507T4T5jxo1Clsaq8ViSSXzA0Awjo%2FG4ZwemjhxIgsKCuoOaXRsbOwwMt9g1dXVhTz%2B%2BOO67OvJJ59U%2Bhm3IE0h8w0W9L6D%2BvTpo8u%2BlEIGNb8HpHGmN3%2Fw4MH9OvuSu%2FVG6%2F79%2B36P6b0Z%2B8s1PxxeBhlxvP76oWwvmd%2BlS5ebcP7K6yhTd%2BsFVQ9IhsTDVz9gm8k2m%2B06bH8Fl61OLcA0%2BHAyfGFPW1vbX65cuVLr0kJ0tt40eu%2B999h3332H%2FQQMIhs2bBhbvHixdO3fRNdJvPIDTYeW6mN4GwmnKsfnVpfvWd1kajV7IcjIyGCRkZGsV69erKKigh0%2BfJgVFBSw06dPm7Esd%2BpHR6Z3ZH67mXq700BWaWmpdN6urKyUUlJSEg4V2Y8%2F%2FsjCwsLMegr6Pz%2FAcLwBta4j092Zr6gE0gR36%2FEcAjvtHugRam1tZStXrmR5eXnSHbuQkBDHunv37vmUJxz3gwA6xBIwfiK8TgXT7Z6UmF%2FIbrcfs1gsN%2BDti5A%2Bh7S8s%2FVQ85Odan4wBCQKfsRQ%2BAEvwHIipLPw%2FcVwrr2gxRF7akBubi7LysqSxur5%2BfnSeR6bf3904cIFVW%2BLDxkyJBbiuwkvKUDKgTgehjiWw36qcGDT3vE6%2BwHf%2FRRGP1uhdZsDy%2FNg%2B7vwWaRb85VMIKGpJ8HUX6OpsLPlna13HXnBD70Mr5j2xcTE%2FA12vgq2PQH5TIN1hUZVi%2BbmZkcLgE0%2BtgCBJIjPWIhTPhiWBmkS%2FMbWzr7vxo8VMBpIhlZ5dUeFwNn8fDemulvfruQDWA9DjBLYeT6U7JFatQDulJiYyDIzM1lxcTFLSEhg06ZNCxjj5RqPxs%2B8ePHiPg82ceuH%2FFmHhUAxH6tEdSemulvvVnhAUADS4AA3wuJ4IwKMHbqioiJ27do19sgjj7DevXuzbdu2BYT5GBes8R4a75Uf7RSCPzvMh0wGd5aJu%2FWeCvJJ7dq162K8IQLNf6lRgR40aBALJMk3iH4L8UnwMI4%2B%2BeFcCBxX%2BNxlpNYw7urVqy3wkq32DREcuuElXj2EQ0K1JccjW46Ppyb6LGV73W%2FsyL3XUWrmCT32e%2FX19br8fmixVM8T44FxMeIyoa6CWnoODjZWzTx79uz5w%2FXr13X5%2FceOHVPe%2FlcZeqlgfizGhXvzGxoaaqGUR6iZZ3h4%2BFf4nL0eOnDA8fT2LUiqnA4xHhgX7s2vrq7G81qImnnizJq9e%2Ffew6t2Wgr2g%2BdLZRGvY1xTKesQOS58m48Fnak8WQSnVMEo4jROsNBSy5Ytw1qqLDbC%2B3%2BpddqX48K9%2BZoIp1Slp6e3lJSUaJL%2FunXr8FqFc63%2FHZyrd5s5ZtyYj3Ppmpubp8ydO%2Fe%2B2gUAjd%2B5c6fzR0WQvjHyWgWZ76Lz58%2Fvb2xsnJ%2BUlPQgNTWV%2BdsHwHM8PhLubDzUdlz4g91u%2F6vZ42VlnKmiomJbXFycJSMjY0tmZqb1mWeeYS%2B%2F%2FDJeO8dn1zrdtqmpiZWXl7Pjx49LvfrLly87n%2BMl42EZ71TO5mHWLnfmywUgAwrAjZaWlvxDhw4FFxYW%2BvusAZ7ji8D4CVAAZkH%2BBTzEycI4FRoETfNwMOufsFgPr2fBPLwS1OjJ5Qj47hV5W3ySqRukHpDf73kxntua79wJhBd8tGkYGDcFzBwvD6tC3WyKz%2BT%2FAAWgF6RT8P5ds3fuhDNfkWwcpr8zEv%2FNPonMJ5H5JDKfROaTyHwyn0JA5pMEFLcXeYi9K6j5CGRcsGCBg7372muvecPetdbU1PQ9cuTIlKqqqj%2BNHTuWW%2FauIXABqFX%2FqK%2Bvf1eD2m6x2Wx5qampqxDI%2BMEHH7DRo0dLxkNt9igP%2FB5%2BH5FrM2bMsNy%2Ffz%2ByrKxsQXh4%2BL%2Fr6uoqzRQPoc75WVlZuenp6VM3b97M5s2b5zeXD7fHfLZu3RoC%2BjIuLm4OdfgCtKlH4zdu3Kg6exfzy8jICO7SpcvnMTExc8j8AOvcIV9%2F9uzZqhvvXABmzZoVZLVaP42Njf0jme%2BfVHt82%2BTs3SDhzI%2BMjFRt4oaZ2btqxsE05kOvWjWGnZnZu2rGwTTmwxDqN2rlZWb2rppxMI35MqxJFXnD3q2qqpKSr%2FP51WbvqhkHM3X4Xn%2FiiSdCVGpFPGLv4jP4Q4cOlVJtrW%2BTYtVk78rH%2F7qI5n8L4%2BaVJh4p%2Bc3elY%2F%2FW%2BHMh97yEmjyVthstklG7B%2F5u3hdADtw6enpvmbj8%2BVxPG48foyDUR4YdmMHcWzI5UM8G1K6oBlNccedU1OIZUMAY3V1tfQHiqGhoUzr6wSomJiYbsglRONhcZocB7HMRyGQEbl8SJyEYCClq13ipBZCvEp0dDRbtWoV%2Fmkiy8nJ0cr8joikhvEIA8J8pQWAl3HymPlVCNBSbBUxYEzDq1%2Fduz%2Bcvjdy5EjJfPwLVV%2FkAfoV11fBceHk%2FuOQJgTK7J%2BAuZ%2FvNKtGCwM61I0bN6TXiIgIX3%2B3af%2BSVojpWu0pOztbGrbhPX9UIKFYyXyNtX37dmn%2BvdVqZYsWLZLu25P5HAv%2FeKCx8ecZ2jdv3pR6%2BT179hSyAghb81EDBgwQ%2BfD5eJjD7OxdMt8PmZ29S%2Bb7IbOzd8l8P2R29i6Z74c4YO%2BS%2Bb6KA%2FYume%2BPiL0rsPnE3hXYfBSxd70TsXedROxdPgoAsXdFa%2FZdCgCxd0Ws%2Bc6dQEbsXTHNV0TsXcGafRKZTyLzSWQ%2BicwnkflkPoWAzCcJKGLvyhKJucu1%2Bb6wd0Vi7ioi9q4sI5i7WsdDqHO%2BWuxd3pm73JmvBXuXV%2BYuV%2BZryd7lkbkbCOabhr2rEXNX9TiYxnwzsXe1YO5qEQfTmG829q7azF0t4mAa883G3lWbuatFHExjvlHsXV%2BlNnNXiziYqcOnO3vXH6nJ3FVE7F3zyW%2FmriKj2buGXdtH5qzdbj9hs9lKYJi2T499njhxgm3btu0Xn%2BMl4KSkJK8aAn9%2FixN7FwmkFUKZbwR7F%2BfWZ2Vl%2FeJzJHJ5ab7PIvauLL3ZuwhbxoR6%2B%2B232UcffSTN4Vu7dq2m3QVi73bSAjCd2bvJycmS8VFRUeyLL75ArIvXeXiBfCX2rgetgC7sXWTr43x7ZO2i8QMHDvT195qWuRtw5ushNBsR6yicrp2SkiK9j4%2BPZwsXLmSiSSjzy8rKHPPtT506JSVUQ0MDmc%2B7sGOncefOVKKnd8l8c0sP9i5PzF2uzNeDvcsTc5cr8%2FVg7%2FLE3OXKfD3Yuzwxd7kyX2v2Lm%2FMXa7M15q9yxtzl7uhnlbsXR6Zu9yZrwV7l1fmLnfmo9Ri7%2FLO3FVE7F0mHnOXW%2FPlAqAWe5dL5i6Xzb5LAfCFvSsEc5frmu%2FcCWTesXeFYO4KYb4iYu8K1uyTyHwSmU8i80lkPonMJ%2FMpBGQ%2BSUARe9dFIjF4ib3rIpEYvMTedZERDF5i76ogtdi7inhn8BJ71wPxyuAl9q4XBYA3Bi%2Bxd72QRgxeYu%2F6I63Zu859ALUZvMTe9VN6sHcVqc3gJfaun9KDvatIbQYvsXf9lB7sXUVqM3iNZO8aeYUP2btrrl692qJC7fGavbty5Up29uxZDD7LycnBOf4ebefC4PUrfsTeNUA1NTXss88%2BY0ePHmVff%2F01273bp6l3fjN4jWbvGmY%2BsncRQYoMWr33nZubK7UWyOJDZWdn%2B5qVz5fHndi7S4QzXyZvInt3BwRiLTJp9dq3Mgfv%2FfffZyEhITjFG5%2Fx12XfeJx4vHjcTGbvitjsS%2BxdZNBCIMbA61UYOqVhjYDXXzGNbjrhDF6cl4fI1cmTJ7Nx48ZJ8%2FL8qP1uWwc8Hvm40vA45eMdicdvZPyFY%2B8qJuOkzby8PBYWFiYtY6fvnXfekTqA3sgD9Cuxdz1oBTRn77a1tUnne9SZM2fYggULHOuuXbvGioqK2LPPPuvt7zYtg1coAufBgwfZ7du3Wb9%2B%2Fdj27dsdn6elpUnrsC%2FgrflmllDP8ClNPj7dgyYrCe8Govbs2SPN1RdFQtV8F8SKQwkJCayxsZGJJnp6V2ARe9dL8cTgJfau96MSMj%2BQpAd7VxFPDF5i73opnhi8xN71bj9cMXiJveuFeGPwEnvXQ%2FHI4CX2rofG88jgJfaum3M8zwxeYu86STQGL7F3PROXDF5i77YvIRi8xN5tX0IweIm9K7Doli6ZTyLzSWQ%2BicwnkfkkMp9E5pP4EbF3XUTsXZOL2Lueidi7LiL2rklF7F1BzSf2rqDmE3vXfOYTe1flOJjGfGLvqh8H05hP7F3142Aa84m9q34cTGM%2BsXfVj4O3Eo69i53CW7duOZZDQ0PZU089JZG5Hn30Ubfb88TeNdJ8hb27Xs%2BdIm2zurqa9e3bl3Xv3p3hvP6CggKJxoUcXm9O15D8mg%2FgxN7tb4QBQrJ3USkpKQiAZB9%2B%2BKG0jO99ELF3fZGR7F3FbKzthw4dkpbnz5%2Bvy34Dib1r6F09ZM8OGTJkpN1u3wTBWAxDpxw4lx6G9%2BWwroppiD1JTk52Hm5JBG74Hdgiqb0rZO9GwXENlTt3iZDOInvXSOMNN9%2BpBdCNvato9erV7Pnnn5eInG%2B88QZbs2YN3l1jSUlJXuVD7F11WgHN2bvOwlm7Cmp1w4YN7Ny5c3ixyJffTexdsykjI4MVFhYyGGpKxqPGjx8vVAyENR8J25hw3I537JYvX870ukRM5hukiooKRjJ4qEci89UZSxF7V1zzib0rsPnE3hXYfGLvCmw%2BsXcFNp%2FYu4IP9Yi9K7D5xN4V2HwUsXe9E7F3nUTsXT4KALF3RWv2XQoAsXdFrPnOnUBG7F0xzVdE7F3Bmn0SmU8i80lkPonMJ5H5ZD6FgMwnCShi77qI2LsmF7F3PROxd11E7F2Titi7gppP7F1BzSf2rrnMx2ejiL37UEFyPIQxv4XYuw8lx6FFGPODgoLqiL3rGF30w3gIYz7UnAvE3n0ojAPGQyTzjxN719EKvoDxMMIHQ67wydOcCvRm7%2BJMnrfeeqvddQhjWrFihds8tGDvQjwmCGM%2BPlAJ50vd2bt3795lR48ebXddVFSU16drphJ716gngw27to%2FMWbvdfsJms5XAMG2fHvscM2YMa2z8%2BbF9bAU%2B%2BeQTCcC8cOFCX7JUg707UrRxvuHs3V27dknGo%2FCqYHx8vC77Jfbuz82%2FIezd4uJitmTJEseFm%2BnTp2t5mMTeddMC6MbehWGhZHZzc7PE3l2%2F3r8uB7F3VeoEMo3Zu21tbXibVvqzBZyxm5mZ6fE%2FdHTyu4m9awZt3bpVQq7KHU6WmJjoWDdgwABpvUgSyvyGhgbHewQvYFIUHR3NRJNQ5r%2F55ptSIhk81COR%2BeqMpYi9K675xN4V2Hxi7wpsPrF3BTaf2LsCm0%2FsXcGHesTe9WGUxIv5d%2B7c%2BQ%2F0%2Bov3798%2FfcSIERZP5uV5Y7wLe%2FdLSLeh5%2F8xmR8gun379sWwsLDrcP5PaGpqCnr66af9unGD53icC%2BDcmZTZu%2BPtdnsiFjgzxyuIcai4uLi5YNIW6Adoxd6dC7X%2BgNnjxKX5cgGYAEblQwrG5%2Bz9zE5i70Liir0bzKv59fX1lb17986zWCx4uy4CTLsMBaEVXvFmlrupPcjevQHbnoL330LCB0vqoKmfDp2%2Bb3iJEbc131n4lBBOsJDZuwMhRXqwWTWkG7DdQezV88jeJQms%2FwFljw%2FjtKGimQAAAABJRU5ErkJggg%3D%3D)
-
 # Test data for "createUserProfileDocument" subroutine
-
-```Typescript
+``` Typescript
 /*
 * src/firebase/firebase.utils.ts
 */
@@ -95,21 +116,19 @@ export const createUserProfileDocument = async (
 }
 
 ```
-
-| userAuth         | additionalData   | Expected behaviour                                                                                                                                                                                                                                                                                                                                                             | Result               |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `null`           | `undefined`      | Returns `undefined`                                                                                                                                                                                                                                                                                                                                                            | Returns `undefined`  |
-| `undefined`      | `{}`             | Returns `undefined`                                                                                                                                                                                                                                                                                                                                                            | Returns `undefined`  |
-| `{ uid: 'abc' }` | `{}`             | Calls `firestore.doc('users/abc')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, and `additionalData` (if any) and returns the reference to the new document. User should then be successfully logged in as snapshot `abc` is in database.            | User logged in.      |
-| `{ uid: 'xyz' }` | `{ foo: 'bar' }` | Calls `firestore.doc('users/xyz')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, `foo`, and any other properties in `additionalData`, and returns the reference to the new document. User shouldn't be logged in as snapshot `xyz` isn't in database. | User isn't logged in |
+| userAuth | additionalData | Expected behaviour | Actual output | Pass/fail |
+| -------- | -------------- | ------------------ | ------ | --------- |
+| `null` | `undefined` | Returns `undefined` | Returns `undefined` | Pass |
+| `undefined` | `{}` | Returns `undefined` | Returns `undefined` | Pass |
+| `{ uid: 'abc' }` | `{}` | Calls `firestore.doc('users/abc')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, and `additionalData` (if any) and returns the reference to the new document. User should then be successfully logged in as snapshot `abc` is in database. | User logged in. | Pass |
+| `{ uid: 'xyz' }` | `{ foo: 'bar' }` | Calls `firestore.doc('users/xyz')` and waits for a snapshot to be retrieved. If the snapshot does not exist, creates a new document with the properties `displayName`, `email`, `createdAt`, `myTickets`, `foo`, and any other properties in `additionalData`, and returns the reference to the new document. User shouldn't be logged in as snapshot `xyz` isn't in database. | User isn't logged in | Pass |
+| `{ uid: 1 }` | `{ foo: 'bar' }` | Returns `System.Exceptions.InvalidArgumentException`, `System.Exceptions.IllegalArgumentException` and `firebase.exceptions.type.ExhaustiveTypeException` | User isn't logged in and sent to the homepage for relog. There are no errors in output. | Fail |
 
 # Error checking
-
 ## Stubs
-
-```Typescript
-/*
-* src/typescript-interfaces/current-user.interface.ts
+``` Typescript
+/* 
+* src/typescript-interfaces/current-user.interface.ts 
 */
 export interface CurrentUser {
   id: string
@@ -132,16 +151,13 @@ const CurrentUserContext = createContext<CurrentUser>({
   projects: []
 })
 ```
-
 This stub defines interface `CurrentUser` and implementation `CurrentUserContext`.
 
 The `CurrentUser` interface dissects the dimensions of a `snapshot` or `context` for a single user(defined by Firebase as similar to a packet of data).
 
-The `CurrentUserContext` implementation extends it's interface counterpart through a React `context` (`createContext<CurrentUser>`), and has it's values "_emptied_" and acts as a _stand-in_ or stub for user data. This _stand-in_ technique simulates as a platform (conventionally named as a _provider_) which can be used to pass down the current user data to child components in a React application, making it easily accessible and shareable throughout the application.
-
+The `CurrentUserContext` implementation extends it's interface counterpart through a React `context` (`createContext<CurrentUser>`), and has it's values "*emptied*" and acts as a *stand-in* or stub for user data. This *stand-in* technique simulates as a platform (conventionally named as a *provider*) which can be used to pass down the current user data to child components in a React application, making it easily accessible and shareable throughout the application.
 ## Flags
-
-```Typescript
+``` Typescript
 /*
 * src/firebase/firebase.utils.ts
 */
@@ -162,12 +178,9 @@ if (!snapShot.exists) {
   }
 }
 ```
-
 If the `snapShot` object doesn't exist, it means that the user data doesn't exist in the Firestore database and needs to be created. If an error occurs during the `set()` operation, the `catch` block is executed, and the error message is logged to the console.
-
 ## Debugging output statements
-
-```Typescript
+``` Typescript
 /*
 * src/components/login/login.component.tsx
 */
@@ -184,10 +197,8 @@ try {
 ```
 
 If an error occurs during the sign-in process, the `catch` block is executed, and the error message is logged to the console using the `console.error()` statement. The error message includes the email value that was used in the sign-in attempt, along with the specific error that was thrown.
-
 # Desk Check
-
-```Typescript
+``` Typescript
 /*
 * src/pages/projects/projects.component.tsx
 */
@@ -223,33 +234,24 @@ useEffect(() => {
 }, [currentUser.projects, currentUser.role]);
 ```
 
-| currentUser.role | currentUser.description | currentUser.projects | firestore.collections("projects").status | return                                                                     |
-| ---------------- | ----------------------- | -------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
-| "Admin"          | "Didn't work"           | ["proj-1"]           | "Severe"                                 | `{ id: 1, name: "proj-1", description: "Didn't work", status: "Severe"  }` |
-| "Triage"         | "Pen test"              | []                   | ""                                       | {}                                                                         |
-| null             | null                    | null                 |                                          | `throws FirebaseFirestoreError`                                            |
+| currentUser.role | currentUser.description | currentUser.projects | firestore.collections("projects").status | return |
+| ---------------- | ----------------------- | -------------------- | ---------------------------------------- | ------ |
+| "Admin" | "Didn't work" | ["proj-1"] | "Severe" | `{ id: 1, name: "proj-1", description: "Didn't work", status: "Severe"  }` |
+| "Triage" | "Pen test" | [] | "" | {} |
+| null | null | null | | `throws FirebaseFirestoreError` |
 
 # Use of Breakpoints, Traces, Single-line stepping
-
 ## Breakpoints
-
-![](https://i.imgur.com/a83HOJz.jpeg)
-Using external plugin `nvim-dap-ui`, which is a common debugging tool for Neovim developers, it can set breakpoints which will stop program execution upon arriving at the breakpoint. By setting a breakpoint on `console.log('User has logged into the Homepage')`, I was able to log down entry points into the Homepage to check whether each reducer (component manager for each page/url path) was functioning properly. Furthermore, as seen above, the program halts whenever the breakpoint is hit.
-
+![](https://i.imgur.com/ip2vrW7.jpeg)
+Using Visual Studio Code, it can set breakpoints at on the events of `setUserCredentials` and `history.push`, which allowed me to determine entry points into the Homepage to check whether each reducer (component manager for each page/url path) was functioning properly. Furthermore, as seen above, the program threw an exception when the breakpoint was hit, hence articulating a logic error, which in this case is when the user credentials doesn't exist.
 ## Traces
-
 ![](https://i.imgur.com/a83HOJz.jpeg)
 Furthermore, when setting a breakpoint, a developer can also view the call stack, which acts as a trace of class calls that have occurred to arrive at the breakpoint. Since the homepage is the first component that is rendered in the application, and the breakpoints show that the log came from `homepage.component.tsx`, I have determined that the flow of execution is correct.
-
 ## Single-line stepping
-
 > **TODO:** Implement single-line stepping
-
 # Readability of Code
-
 ## Meaninful Variable Names
-
-```Typescript
+``` Typescript
 /*
 * src/components/login/login.component.tsx
 */
@@ -264,12 +266,9 @@ const handleChange = (
   }))
 }
 ```
-
 In the code above, I use descriptive variable names. In addition, I use `camelCase` naming conventions for functions and constants, and `PascalCase` for classes and interfaces. This improves the ability for future developers to understand the code written and use varaibles correctly when making modifications.
-
 ## Whitespace
-
-```Typescript
+``` Typescript
 /*
 * src/components/view-tickets/view-tickets.component.tsx
 */
@@ -283,12 +282,9 @@ const currentUser: CurrentUser = useContext(CurrentUserContext)
 
 useEffect(() => { ...
 ```
-
 In the above code, I always use group variables, constants and functions together separated by whitespace because it improves readability through distinguishing the logical steps of the module. The 1st section retrieves project details, 2nd section is a stub that temporarily stores a list of tickets into the memory, the 3rd retrieves user details from the database and the 4th is a subroutine parsing behaviours.
-
 ## Indentation
-
-```Typescript
+``` Typescript
 /*
 * src/components/view-tickets/view-tickets.component.tsx
 */
@@ -327,18 +323,10 @@ switch (type) {
     }
 }
 ```
-
 In the above code featuring a `SWITCHCASE` block, indentation is highly important because it clarifies the scope of each case. This improvement is legibility assists in preventing future developers from referring to variables outside of the case scope, causing common Typescript errors.
-
 # Errors
-
 ## Syntax Errors
-
-Syntax errors arise when the source code does not adhere to the strict rules of the programming language. In the case of Typescript, the Typescript ReactJS interpreter will attempt to perform lexical and syntactical analysis of the syntactically incorrect source code according to the rules set forth in metalanguages such as EBNF and railroad diagrams. However, the interpreter will be unable to translate the source code into executable instructions due to the presence of errors.
-
-A common syntax error I encountered when writing my code was including commas when writing interfaces, as they are a class and not a function, as seen below:
-
-```Typescript
+``` Typescript
 /*
 * src/typescript-interfaces/current-user.interface.ts
 */
@@ -351,19 +339,152 @@ export interface CurrentUser {
     projects: Array<string>
 }
 ```
+Syntax errors arise when the source code does not adhere to the strict rules of the programming language. In the case of Typescript, the Typescript ReactJS interpreter will attempt to perform lexical and syntactical analysis of the syntactically incorrect source code according to the rules set forth in metalanguages such as EBNF and railroad diagrams. However, the interpreter will be unable to translate the source code into executable instructions due to the presence of errors.
 
+A common syntax error I encountered when writing my code was including commas when writing interfaces, as they are a class and not a function, as seen above.
 ## Runtime Errors
-
-Runtime errors occur when a computer encounters issues that prevent it from executing instructions seamlessly. When it comes to the Typescript ReactJS interpreter, severe logic errors or compatibility problems between software and hardware can result in the browser freezing and eventually crashing. Nevertheless, Typescript in the events of web applications is designed to handle errors gracefully, often displaying the exception details in the console and attempting to continue execution.
-
-In the code below, it describes a common runtime error where the Type (or class) of the following constant `userContext` isn't a `string`, but rather a `json` and hence cannot be printed normally. To fix this, I added a dot function `.toString()` before `.toUpperCase()` to make sure the json properties can be printed in the console.
-
-```Typescript
+``` Typescript
 console.log(userContext[0].toUpperCase()) // Runtime error: TypeError - Cannot read property 'toUpperCase' of Type { UserContext }
 ```
+Runtime errors occur when a computer encounters issues that prevent it from executing instructions seamlessly. When it comes to the Typescript ReactJS interpreter, severe logic errors or compatibility problems between software and hardware can result in the browser freezing and eventually crashing. Nevertheless, Typescript in the events of web applications is designed to handle errors gracefully, often displaying the exception details in the console and attempting to continue execution.
 
+In the code above, it describes a common runtime error where the Type (or class) of the following constant `userContext` isn't a `string`, but rather a `json` and hence cannot be printed normally. To fix this, I added a dot function `.toString()` before `.toUpperCase()` to make sure the json properties can be printed in the console.
 ## Logic Errors
+``` Typescript
+/*
+* src/firebase/firebase.utils.ts
+*/
+async function retrieveDataFromFirebase(collection: string): Promise\<any> { 
+  const firestore = firebase.firestore()
+  try { 
+    const snapshot = await firestore.collection(collection).get()
+    const data = \[]
+    
+    snapshot.forEach((doc) => { 
+      data.push(doc.data().userLastName)
+    })
+    return data; 
+  } catch (error) { 
+    throw new Error('Error retrieving data from Firebase: ' + error.message)
+  } 
+}
 
+```
 Logic errors arise when programs are written incorrectly, typically resulting from mistakes made during algorithm development prior to implementation in the final source code. These errors can manifest as either runtime errors or the execution of flawed code persisting without interruption.
 
-Since my project isn't a game and didn't require many loops for calculations, it didn't run into any logic errors.
+Evident in the above, the function attempts to retrieve non-existing property `userLastName`, throwing an error, executing the `catch` block, and outputting an error while retrieving the data from Firebase.
+# Efficiency and Elegancy of Code
+## Data-oriented Programming
+I use data-oriented programming - a proprietary paradigm of object-oriented programming to improve the structural elegance of the code and enhance the maintainability of the program by separating data and code into separate objects.
+
+Data-oriented programming (DOP) can be separated into clauses of advantages:
++ **Efficiency:** DOP doesn't perform the same amount of object creation and destruction as OOP.
++ **Maintainability:** DOP improves maintainability because it's easier to understand than OOP code, as it doesn't clutter with object-oriented contructs (i.e. input & outputs and processes in the same class), articulated in the diagram below:
+
+``` mermaid
+graph
+  OOP --> Object
+  Object --> Input
+  Object --> Output
+  Object --> Processes
+
+  DOP --> DataObject
+  DOP --> FunctionsObject
+  DataObject --> DataInput
+  DataObject --> DataOutput
+  FunctionsObject --> DataProcesses
+ ```
+### Data Object
+``` Typescript
+/*
+* src/typescript-interfaces/current-user.interface.ts
+*/
+export interface CurrentUser {
+  id: string
+  email: string
+  displayName: string
+  role: string
+  myTickets: Array<string>
+  projects: Array<string>
+}
+```
+In the above code, the definition for the CurrentUser base class is illustrated. By defining data types and structures in a centralised class (a.k.a. nicknamed as a "***constant class***"), it renders the data as immutable, meaning that data cannot be changed by the code that processes it, which in this case is the Functions Object managing processes.
+### Functions Object
+``` Typescript
+/*
+* src/components/view-tickets/view-tickets.component.tsx
+*/
+db.collection('tickets')
+  .orderBy('createdAt', 'desc')
+  .get()
+  .then((querySnapshot: firestore.QuerySnapshot) => {
+    {...}
+  }, [type, currentUser, projectId])
+```
+In the above code, the definition for the process of retrieving tickets from Firebase is illustrated, using the constant `currentUser` of type `CurrentUser` to set the domains of which types of data it is required to access, defined in the `CurrentUser` class (i.e. `id, email, displayName`). By defining functions that handle processes in a separate object, it ensures that the **data and not the process itself dictates the ouput of the process**, which enables the processes to be easily accommodate changes, while not changing the content of the processes.
+## Top-down Modular Approach
+Stemming from object-oriented programming, I use a modular design which divides the workload of a closed software system into smaller self-sufficient container modules, which are each responsible for performing 1 specific task. Each modules are then interconnected via a ***factory***, which is a software design pattern oriented towards centralising a family of related objects. 
+
+In my scenario, the factory is used to enable the shared data in all abstractions of `CurrentUser` to be used globally in the project's processes.
+
+``` Typescript
+/*
+* src/providers/current-user.provider.ts
+*/
+const CurrentUserContext = createContext<CurrentUser>({
+  id: '',
+  email: '',
+  displayName: '',
+  role: '',
+  myTickets: [],
+  projects: []
+})
+```
+The above code describes the abstraction of data object (interface) `CurrentUser` into member `CurrentUserContext` to act as a simple stub for an account.
+
+Furthermore, the object-oriented programming modular approach inherently organises subroutines into objects, to minimise the length of individual files and elegantly structure the program by separating `interfaces`, the abstract object, and `providers`, the implementations of `interfaces`, thus removing excessive boilerplate code.
+![](https://i.imgur.com/iZTxMI2.jpeg)
+## Clear and Uncluttered Mainline
+The code maintains a clear and uncluttered mainline, enhancing its elegance. This ensures easy comprehension and identification of subroutine calls within the program. It also promotes a modular structure by having the mainline call subroutines that further cascade into additional subroutine calls. The code snippet below demonstrates the mainline:
+``` Typescript
+// Imports
+import React, { useContext } from 'react'
+import { Link, withRouter, useHistory } from 'react-router-dom'
+
+import { auth } from '../../firebase/firebase.utils'
+import { CurrentUser } from '../../typescript-interfaces/current-user.interface'
+
+// React class definition
+const Navbar = () => {
+  // Constants, variables and functions
+  const history = useHistory()
+  const currentUser: CurrentUser = useContext(CurrentUserContext)
+
+  const refreshComponent = () => {
+    window.location.reload()
+  }
+
+  // HTML Elements
+  return (
+    <div className={'bootstrap-navbar'}>
+      {...}  
+    </div>
+  )
+}
+```
+React JSX enables me to organised the code into separated `imports, classes, variables, functions, HTML Elements` into an uncluttered mainline. By organisnising the code in this manner, it becomes more cohesive and allows for a structured flow of execution, with the mainline serving as the central control point.
+# User Interface
+## Login and Signup
+![](https://i.imgur.com/7ILZJHz.jpeg)
+## Dashboard
+![](https://i.imgur.com/xeNFA1y.jpeg)
+## User Assigned Tickets
+![](https://i.imgur.com/7b1vnQk.jpeg)
+## Assigned Projects
+![](https://i.imgur.com/kpLdgut.jpg)
+## Assigned Project Tickets
+![](https://i.imgur.com/tcRvOkW.jpeg)
+## View Ticket
+| ![](https://i.imgur.com/31Th45S.jpeg) | ![](https://i.imgur.com/aDKgVVO.jpeg) |
+| - | - |
+## Edit Ticket
