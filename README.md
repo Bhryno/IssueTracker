@@ -526,10 +526,100 @@ In order to handle changing requirements, I approach conventional prototyping pr
 ## Requirement Analysis and Prioritisation
 In requirement analysis and prioritisation, as a developer, I analyse the impact of new requirements on the existing software system. I evaluate their feasibility, complexity, and potential benefits to determine their value. By prioritising requirements based on their urgency and value, I focus my development efforts on delivering the most valuable features first.
 
-## Documentation and Versional Control
+## Documentation and Version Control
 In maintaining up-to-date documentation through version control CASE tools, as a developer, I recognise the importance of capturing and tracking changing requirements. These tools enable me to document new feature requests, modifications, and user feedback effectively. For instance, Git, a CASE tool, assists me in managing various software versions and provides the capability to roll back to previous versions when necessary.
 ## Quality Assurance and Control
 ### Quality Assurance
 Quality assurance is the process of ensuring that products or services meet specified quality standards and customer expectations by implementing initial robust processes and standards to eliminate defects, in other words it is a **preventative measure of issues**. It provides support in handling changing user requirements by implementing continuous integration and testing practices to validate and clarify initial user requirements. By following these practices, I can ensure that the software meets the desired quality standards and effectively addresses evolving user needs.
 ### Quality Control
 Conversely to quality assurance, quality control is the process encompassing the identification and addressal of issues in the final product, in other words it is the **verification of changing user requirements**. Specifically, through thorough testing, I can identify and fix any issues or bugs that may arise due to evolving user requirements. Quality control is essential for maintaining the stability and reliability of the software, ensuring that it performs optimally even when requirements change. By consistently delivering high-quality software, I can effectively manage changing user requirements and ultimately ensure user satisfaction.
+# User Manual
++ What is IssueTracker?
++ Getting started
++ How do I sign in/register?
++ How does the project work in relation to connecting to firebase?
++ User interface catwalk
+# IssueTracker
+
+[IssueTracker](https://github.com/HairConditioner/IssueTracker/tree/master) is an open-source project and a web-based issue tracking system designed to help teams efficiently manage and track their software development issues and tasks.
+
+## Features
+- **Issue Management**: IssueTracker provides a comprehensive set of features for creating, updating, and tracking issues. Users can create new issues, assign them to team members, set priorities, add labels, and monitor the progress of each issue.
+- **Collaboration and Communication**: The platform promotes effective collaboration among team members by providing features like comments, notifications, and status updates. Users can discuss issues, share insights, and stay informed about the latest developments.
+- **Customizable Workflows**: IssueTracker allows teams to define their own workflows and tailor them to their specific development processes. This flexibility enables teams to adapt the system to their preferred methodologies, such as Agile or Waterfall.
+- **Dashboard and Analytics**: The platform offers a user-friendly dashboard that provides an overview of the project's status, including open issues, completed tasks, and pending assignments. Additionally, analytics and reporting features help teams gain insights into their development progress and identify areas for improvement.
+
+## How do I Sign In/Up?
+1. **Sign In**: If you already have an account, click on the "Sign In" button on the login page. Enter your credentials, including your username and password, and click "Sign In" to access your account.
+2. **Sign Up**: If you are a new user, click on the "Register" button on the login page. Fill in the required information, such as your name, email address, and desired password. Once all the information is provided, click "Register" to create your account.
+![](https://i.imgur.com/7ILZJHz.jpeg)
+## Where can I start?
+Once you are signed in to your IssueTracker account, you can start using the app's features to manage your projects and track issues. Here are some key actions you can perform:
+
+1. **Managing Issues**: You can view and manage your existing issues from the dashboard. Use the search and filter options to find specific issues based on different criteria like status, assignee, or labels. Update issue details, add comments, and change the status as needed.
+![](https://i.imgur.com/hQgANbH.jpeg)
+2. **Collaboration**: Engage in discussions and collaboration by leaving comments on issues. Stay updated with notifications to stay informed about any changes or updates related to the issues you are involved in.
+![](https://i.imgur.com/8TV9DLy.jpeg)
+3. **View Assigned Projects:** Easily access the projects assigned to you by navigating to the "Assigned Projects" section. This will provide you with an overview of the projects you are actively involved in, allowing you to stay focused and prioritise your tasks effectively.
+![](https://i.imgur.com/tcRvOkW.jpeg)
+## Maintenaince Development
+### Installation
+To install and set up the IssueTracker project locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/HairConditioner/IssueTracker.git`
+2. Navigate to the project directory: `cd IssueTracker`
+3. Install the required dependencies: `npm install`
+4. Configure the database settings in the `config.js` file.
+5. Start the server: `npm start`
+
+### Contributing
+Contributions to IssueTracker are welcome and encouraged. If you would like to contribute to the project, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b my-feature`
+3. Make your changes and commit them: `git commit -m "Add new feature"`
+4. Push the changes to your forked repository: `git push origin my-feature`
+5. Submit a pull request detailing your changes and their purpose.
+
+## License
+IssueTracker is released under the [MIT License](https://github.com/HairConditioner/IssueTracker/blob/master/LICENSE).
+# Installation Manual
+## Requirements
+### System Requirements
+| Operating System | Minimum | Recommended |
+| ---------------- | ------- | ----------- |
+| **Windows** | Intel Core i3 or equivalent, Windows Vista or later | 2nd-generation Core i5 (2GHz+), 3rd/4th-generation Core i5 processor, or equivalent, Windows 7 or later |
+| **Apple OS X** | Macbook Pro 2010, Macbook Air 2011, OS X 10.9 or above | Macbook Pro 2011 or newer, Macbook Air 2012 or newer, OS X 10.9 or above |
+| **Chrome OS** | Not applicable | All 2014 models and later, 2013 Haswell-based models, and Samsung Chromebook 2 |
+| **Linux** | | Results will vary depending on OS distribution, driver support, and desktop environment |
+
+### GPU Requirements
+| Minimum | Recommended |
+| ------- | ----------- |
+| Intel HD3000 or comparable | Intel HD4000 or comparable |
+## Installation Instructions
+1. Open your browser
+2. Navigate to [localhost:3000](localhost:3000)
+
+### Enabling Hardware Acceleration on your Browser (optional)
+If your browser supports it, enabling hardware acceleration on your browser may increase
+the responsiveness of the issue tracker by shifting processing to your GPU.
+#### Chrome:
+1. Navigate to `chrome://settings`.
+2. Click **Show Advanced Settings** at the bottom of the page.
+3. Find the **System** section.
+4. Select **Use hardware acceleration when available**.
+5. Restart Chrome.
+#### Edge:
+1. Navigate to `edge://settings`.
+2. Click on **System** on the left side menu.
+3. Under **System**, select **Use Hardware Acceleration when available**.
+4. Restart Edge.
+#### Safari:
+Doesn't support hardware acceleration.
+#### Opera:
+1. Click on the menu button and select **Settings**.
+2. Select **Browser** from the left side menu.
+3. Find the **System** section.
+4. Select use **Hardware Acceleration when available**.
+5. Restart Opera.
