@@ -447,6 +447,9 @@ Furthermore, the object-oriented programming modular approach inherently organis
 ## Clear and Uncluttered Mainline
 The code maintains a clear and uncluttered mainline, enhancing its elegance. This ensures easy comprehension and identification of subroutine calls within the program. It also promotes a modular structure by having the mainline call subroutines that further cascade into additional subroutine calls. The code snippet below demonstrates the mainline:
 ``` Typescript
+/*
+* src/components/navbar.component.tsx
+*/
 // Imports
 import React, { useContext } from 'react'
 import { Link, withRouter, useHistory } from 'react-router-dom'
@@ -459,12 +462,12 @@ const Navbar = () => {
   // Constants, variables and functions
   const history = useHistory()
   const currentUser: CurrentUser = useContext(CurrentUserContext)
-
+  
   const refreshComponent = () => {
     window.location.reload()
   }
 
-  // HTML Elements
+  // Mainline (HTML Elements)
   return (
     <div className={'bootstrap-navbar'}>
       {...}  
@@ -488,3 +491,30 @@ React JSX enables me to organised the code into separated `imports, classes, var
 | ![](https://i.imgur.com/31Th45S.jpeg) | ![](https://i.imgur.com/aDKgVVO.jpeg) |
 | - | - |
 ## Edit Ticket
+![](https://i.imgur.com/hQgANbH.jpeg)
+## Ticket Comment History
+![](https://i.imgur.com/8TV9DLy.jpeg)
+# Suitable CASE Tools to Monitor Changes and Version Control
+## LazyGit
+LazyGit is a terminal user interface (TUI) that provides a streamlined and efficient workflow for common Git operations. I can perform tasks such as staging, committing, pushing, and pulling directly within the Neovim interface, eliminating the need to switch between the text editor and the command line. This integration saves time and reduces context switching, allowing developers to focus on their coding tasks.
+
+***Example:*** *TUI illustrating file changes, remote status, remote branches, commit history and components of file changes in the right panel.*
+![](https://i.imgur.com/8QY0fpT.jpeg)
+Additionally, LazyGit enhances the version control experience with its visual representation of changes. It offers a clear and intuitive interface that visually showcases modified lines, hunks, and branches. This visual approach aids in reviewing and comprehending changes before committing them, reducing the risk of introducing unintended modifications. Moreover, LazyGit simplifies conflict resolution during merges or rebases. It presents conflicts in a side-by-side comparison, providing interactive options to choose between conflicting versions or combine them. This feature facilitates efficient and accurate conflict resolution, improving collaboration among team members and ensuring a smoother development process.
+
+***Example:*** *Right panel visually represents line changes in files.*
+![](https://i.imgur.com/lsTI9gs.jpeg)
+
+On top of its Git advantages, LazyGit leverages the power and extensibility of Neovim. It seamlessly integrates with the text editor, offering further benefits to developers. This integration enables customization and tailoring of the version control workflow to suit individual preferences and project requirements.
+
+***Example:*** *Split-screen multitasking increasing productivity.*
+![](https://i.imgur.com/Rga3heF.jpeg)
+I can leverage Neovim's ecosystem of plugins and functionality, enhancing my overall coding experience. With automation features like auto-staging and commit message templates, LazyGit streamlines repetitive tasks, ultimately boosting productivity and allowing developers to focus on their core coding tasks.
+## GitHub
+In conjunction with LazyGit, GitHub offers several advantages for storing project files, including documentation, in the cloud.
+
+Specifically, it provides a reliable and secure cloud-based repository for version control. By storing old versions and changes on the cloud, the project is able to be developed without concern for significant errors or data loss.
+***Example:*** *I store this documentation as a markdown file in the same respository as the web application to avoid the loss of the entire project.*
+![](https://i.imgur.com/TlpWVF5.jpeg)
+
+Moreover, GitHub's user-friendly web-based interface makes it easy to navigate and browse through project files, track changes, and review historical versions of documentation. Its integration with various third-party tools and services further enhances productivity for teams working on documentation projects. With GitHub, teams in Australia can benefit from a trusted platform that offers seamless workflows, enabling them to store and manage their project files, including documentation, in a secure and organised manner.
