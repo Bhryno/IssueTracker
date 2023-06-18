@@ -1,3 +1,4 @@
+# Table of Contents
 # Choice of UI item selected
 | Element | Description |
 | ------- | ----------- |
@@ -522,10 +523,8 @@ Moreover, GitHub's user-friendly web-based interface makes it easy to navigate a
 Changing user requirements in software refers to the modification, addition and substraction of functional or non-functional specifications of a software system as defined by the initial user requirements. These changes occur when such initial requirements do not fully meet evolving needs, expectations or circumstances of the product's demographic and environment.
 
 In order to handle changing requirements, I approach conventional prototyping practices such as **requirement analysis and prioritisation, documentation and version control, and quality assurance and control**.
-
 ## Requirement Analysis and Prioritisation
 In requirement analysis and prioritisation, as a developer, I analyse the impact of new requirements on the existing software system. I evaluate their feasibility, complexity, and potential benefits to determine their value. By prioritising requirements based on their urgency and value, I focus my development efforts on delivering the most valuable features first.
-
 ## Documentation and Version Control
 In maintaining up-to-date documentation through version control CASE tools, as a developer, I recognise the importance of capturing and tracking changing requirements. These tools enable me to document new feature requests, modifications, and user feedback effectively. For instance, Git, a CASE tool, assists me in managing various software versions and provides the capability to roll back to previous versions when necessary.
 ## Quality Assurance and Control
@@ -540,22 +539,18 @@ Conversely to quality assurance, quality control is the process encompassing the
 + How does the project work in relation to connecting to firebase?
 + User interface catwalk
 # IssueTracker
-
 [IssueTracker](https://github.com/HairConditioner/IssueTracker/tree/master) is an open-source project and a web-based issue tracking system designed to help teams efficiently manage and track their software development issues and tasks.
-
 ## Features
 - **Issue Management**: IssueTracker provides a comprehensive set of features for creating, updating, and tracking issues. Users can create new issues, assign them to team members, set priorities, add labels, and monitor the progress of each issue.
 - **Collaboration and Communication**: The platform promotes effective collaboration among team members by providing features like comments, notifications, and status updates. Users can discuss issues, share insights, and stay informed about the latest developments.
 - **Customizable Workflows**: IssueTracker allows teams to define their own workflows and tailor them to their specific development processes. This flexibility enables teams to adapt the system to their preferred methodologies, such as Agile or Waterfall.
 - **Dashboard and Analytics**: The platform offers a user-friendly dashboard that provides an overview of the project's status, including open issues, completed tasks, and pending assignments. Additionally, analytics and reporting features help teams gain insights into their development progress and identify areas for improvement.
-
 ## How do I Sign In/Up?
 1. **Sign In**: If you already have an account, click on the "Sign In" button on the login page. Enter your credentials, including your username and password, and click "Sign In" to access your account.
 2. **Sign Up**: If you are a new user, click on the "Register" button on the login page. Fill in the required information, such as your name, email address, and desired password. Once all the information is provided, click "Register" to create your account.
 ![](https://i.imgur.com/7ILZJHz.jpeg)
 ## Where can I start?
 Once you are signed in to your IssueTracker account, you can start using the app's features to manage your projects and track issues. Here are some key actions you can perform:
-
 1. **Managing Issues**: You can view and manage your existing issues from the dashboard. Use the search and filter options to find specific issues based on different criteria like status, assignee, or labels. Update issue details, add comments, and change the status as needed.
 ![](https://i.imgur.com/hQgANbH.jpeg)
 2. **Collaboration**: Engage in discussions and collaboration by leaving comments on issues. Stay updated with notifications to stay informed about any changes or updates related to the issues you are involved in.
@@ -565,22 +560,18 @@ Once you are signed in to your IssueTracker account, you can start using the app
 ## Maintenaince Development
 ### Installation
 To install and set up the IssueTracker project locally, follow these steps:
-
 1. Clone the repository: `git clone https://github.com/HairConditioner/IssueTracker.git`
 2. Navigate to the project directory: `cd IssueTracker`
 3. Install the required dependencies: `npm install`
 4. Configure the database settings in the `config.js` file.
 5. Start the server: `npm start`
-
 ### Contributing
 Contributions to IssueTracker are welcome and encouraged. If you would like to contribute to the project, please follow these guidelines:
-
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix: `git checkout -b my-feature`
 3. Make your changes and commit them: `git commit -m "Add new feature"`
 4. Push the changes to your forked repository: `git push origin my-feature`
 5. Submit a pull request detailing your changes and their purpose.
-
 ## License
 IssueTracker is released under the [MIT License](https://github.com/HairConditioner/IssueTracker/blob/master/LICENSE).
 # Installation Manual
@@ -592,7 +583,6 @@ IssueTracker is released under the [MIT License](https://github.com/HairConditio
 | **Apple OS X** | Macbook Pro 2010, Macbook Air 2011, OS X 10.9 or above | Macbook Pro 2011 or newer, Macbook Air 2012 or newer, OS X 10.9 or above |
 | **Chrome OS** | Not applicable | All 2014 models and later, 2013 Haswell-based models, and Samsung Chromebook 2 |
 | **Linux** | | Results will vary depending on OS distribution, driver support, and desktop environment |
-
 ### GPU Requirements
 | Minimum | Recommended |
 | ------- | ----------- |
@@ -600,7 +590,6 @@ IssueTracker is released under the [MIT License](https://github.com/HairConditio
 ## Installation Instructions
 1. Open your browser
 2. Navigate to [localhost:3000](localhost:3000)
-
 ### Enabling Hardware Acceleration on your Browser (optional)
 If your browser supports it, enabling hardware acceleration on your browser may increase
 the responsiveness of the issue tracker by shifting processing to your GPU.
@@ -623,3 +612,14 @@ Doesn't support hardware acceleration.
 3. Find the **System** section.
 4. Select use **Hardware Acceleration when available**.
 5. Restart Opera.
+# Source Code
+[Source code](https://github.com/HairConditioner/IssueTracker)
+![embed](https://i.imgur.io/Gn8irsj_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
+# Project Report
+## Learning
+## Future Directions
+## Comparison with Original Design Specifications
+### User Specifications
+### Developer Specifications
+# Bibliography
+# Logbook
