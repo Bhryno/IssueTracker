@@ -4,9 +4,6 @@
     "author": "Bryan Lee",
     "private": true,
     "dependencies": {
-        "@emotion/react": "^11.10.8",
-        "@emotion/styled": "^11.10.8",
-        "@mui/material": "^5.12.3",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
