@@ -518,3 +518,18 @@ Specifically, it provides a reliable and secure cloud-based repository for versi
 ![](https://i.imgur.com/TlpWVF5.jpeg)
 
 Moreover, GitHub's user-friendly web-based interface makes it easy to navigate and browse through project files, track changes, and review historical versions of documentation. Its integration with various third-party tools and services further enhances productivity for teams working on documentation projects. With GitHub, teams in Australia can benefit from a trusted platform that offers seamless workflows, enabling them to store and manage their project files, including documentation, in a secure and organised manner.
+# Changing User Requirements
+Changing user requirements in software refers to the modification, addition and substraction of functional or non-functional specifications of a software system as defined by the initial user requirements. These changes occur when such initial requirements do not fully meet evolving needs, expectations or circumstances of the product's demographic and environment.
+
+In order to handle changing requirements, I approach conventional prototyping practices such as **requirement analysis and prioritisation, documentation and version control, and quality assurance and control**.
+
+## Requirement Analysis and Prioritisation
+In requirement analysis and prioritisation, as a developer, I analyse the impact of new requirements on the existing software system. I evaluate their feasibility, complexity, and potential benefits to determine their value. By prioritising requirements based on their urgency and value, I focus my development efforts on delivering the most valuable features first.
+
+## Documentation and Versional Control
+In maintaining up-to-date documentation through version control CASE tools, as a developer, I recognise the importance of capturing and tracking changing requirements. These tools enable me to document new feature requests, modifications, and user feedback effectively. For instance, Git, a CASE tool, assists me in managing various software versions and provides the capability to roll back to previous versions when necessary.
+## Quality Assurance and Control
+### Quality Assurance
+Quality assurance is the process of ensuring that products or services meet specified quality standards and customer expectations by implementing initial robust processes and standards to eliminate defects, in other words it is a **preventative measure of issues**. It provides support in handling changing user requirements by implementing continuous integration and testing practices to validate and clarify initial user requirements. By following these practices, I can ensure that the software meets the desired quality standards and effectively addresses evolving user needs.
+### Quality Control
+Conversely to quality assurance, quality control is the process encompassing the identification and addressal of issues in the final product, in other words it is the **verification of changing user requirements**. Specifically, through thorough testing, I can identify and fix any issues or bugs that may arise due to evolving user requirements. Quality control is essential for maintaining the stability and reliability of the software, ensuring that it performs optimally even when requirements change. By consistently delivering high-quality software, I can effectively manage changing user requirements and ultimately ensure user satisfaction.
