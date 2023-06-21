@@ -659,4 +659,22 @@ An important focus is to enhance the navigation within the application. Currentl
 | Screen-size responsive application with 0 latency | Using `tailwindcss`, the navigation bar can be combined into a `hamburger` icon element which can be expanded into a listed navigation menu | Met |
 | Code is well documented with informative internal and intrinsic annotations | Provided on [HairCondtioner/IssueTracker](https://github.com/HairConditioner/IssueTracker), each interface object and function has been annotated using the `functions comments format`, where it lists an interface's/function's **description, paramater values, and return value**, and small developer annotations within these interfaces/functions to note any important changes and errors, as well as describing ***processes of 1 logical task per subroutine***. | Met |
 # Bibliography
++ Affairs, A.S. for P. (2013). User interface elements. Usability.gov. Available at: https://www.usability.gov/how-to-and-tools/methods/user-interface-elements.html.
++ AI design tool: Ai Ui Design (no date). Uizard. Available at: https://uizard.io/ai-design/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=T1+Design+and+UI+%5BENG%5D&amp;utm_content=Design+tool+UX+UI&amp;utm_term=app+design+software&amp;utm_id=18441587446&amp;gad=1&amp;gclid=Cj0KCQjwnMWkBhDLARIsAHBOftrf9Iewiqs0B7qXhT8lEeppZqbGvkw9UuhCFWBnzPO040I8-_2Vo4gaApHlEALw_wcB.
++ Authenticate with firebase using password-based accounts using Javascript (no date). Google. Available at: https://firebase.google.com/docs/auth/web/password-auth.
++ Firebase documentation (no date). Google. Available at: https://firebase.google.com/docs.
++ Installation - tailwind CSS (no date). Installation - Tailwind CSS. Available at: https://tailwindcss.com/docs/installation.
++ Mfussenegger (no date). Debug adapter installation. GitHub. Available at: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation.
++ Microsoft (2021). Debug node.js apps using visual studio code. RSS. Available at: https://code.visualstudio.com/docs/nodejs/nodejs-debugging.
++ owlowl&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4 et al. (1960). How to generate unique ID with node.js. Stack Overflow. Available at: https://stackoverflow.com/questions/23327010/how-to-generate-unique-id-with-node-js.
++ Software design and development stage 6 syllabus (2010) (no date). Software Design and Development | NSW Education Standards. Available at: https://educationstandards.nsw.edu.au/wps/portal/nesa/11-12/stage-6-learning-areas/tas/software-design-development.
++ Sunil ShahSunil Shah&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 97011 gold badge77 silver badges1717 bronze badges et al. (1967). Unable to resolve dependency tree reactjs. Stack Overflow. Available at: https://stackoverflow.com/questions/64718633/unable-to-resolve-dependency-tree-reactjs.
++ Carrigan, R. (2023). nvim-dap-ui. [online] GitHub. Available at: https://github.com/rcarriga/nvim-dap-ui.
++ Clerk. (n.d.). Building a React Login Page Template. [online] Available at: https://clerk.com/blog/building-a-react-login-page-template.
++ codemafias.com. (n.d.). How to create working responsive navbar with dropdown menu using React. [online] Available at: https://codemafias.com/How-to-create-working-responsive-navbar-with-dropdown-menu-using-React.
++ Manning Publications. (n.d.). Data-Oriented Programming. [online] Available at: https://www.manning.com/books/data-oriented-programming#:~:text=The%20Data%2Doriented%20programming%20(DOP.
++ Mines, J. (2018). Data-Oriented vs Object-Oriented Design - Jonathan Mines - Medium. [online] Medium. Available at: https://medium.com/@jonathanmines/data-oriented-vs-object-oriented-design-50ef35a99056.
++ Simplilearn.com. (2021). What Is Software Quality Assurance: Definition, Benefits, and Top Techniques Explained. [online] Available at: https://www.simplilearn.com/software-quality-assurance-article#:~:text=Software%20quality%20assurance%20(or%20SQA.
++ Stack Overflow. (n.d.). Handling linking accounts in Firebase. [online] Available at: https://stackoverflow.com/questions/39459524/handling-linking-accounts-in-firebase.
++ Wikipedia. (2022). Software quality control. [online] Available at: https://en.m.wikipedia.org/wiki/Software_quality_control.
 # Logbook
